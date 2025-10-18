@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - Go Beyond</title>
+    <meta name="description" content="Get in touch with Go Beyond for questions about courses, pricing, and your store-to-corporate career transition.">
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Alice:wght@400&family=Lato:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="nav-brand">
+                <a href="index.html" class="logo-link">
+                    <h1 class="logo">Go | BEYOND</h1>
+                </a>
+            </div>
+            <nav class="nav-menu">
+                <a href="index.html#courses" class="nav-link">Courses</a>
+                <a href="index.html#why" class="nav-link">Why Go Beyond</a>
+                <a href="index.html#pricing" class="nav-link">Pricing</a>
+                <a href="contact.html" class="nav-link">Contact</a>
+                <a href="https://sso.teachable.com/secure/2469444/identity/login/otp" class="btn-signin">Sign In</a>
+            </nav>
+            <button class="hamburger" id="hamburger">
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
+            </button>
+        </div>
+    </header>
+
+    <!-- Contact Hero Section -->
+    <section class="contact-hero">
+        <div class="container">
+            <h1 class="contact-title">Get in Touch</h1>
+            <p class="contact-subtitle">Have questions about your store-to-corporate transition? We're here to help.</p>
+        </div>
+    </section>
+
+    <!-- Contact Form Section -->
+    <section class="contact-form-section">
+        <div class="container">
+            <div class="contact-content">
+                <div class="contact-info">
+                    <h2>Why Reach Out?</h2>
+                    <div class="contact-benefits">
+                        <div class="benefit-item">
+                            <div class="benefit-icon">💬</div>
+                            <p>Quick answers on courses, pricing, and membership</p>
+                        </div>
+                        <div class="benefit-item">
+                            <div class="benefit-icon">🎯</div>
+                            <p>Guidance on your store-to-corporate path</p>
+                        </div>
+                        <div class="benefit-item">
+                            <div class="benefit-icon">💡</div>
+                            <p>Insider tips from former retail leaders who've made the transition</p>
+                        </div>
+                    </div>
+                    
+                    <div class="response-time">
+                        <h3>Response Time</h3>
+                        <p>We respond to all inquiries within <strong>2 business days</strong>.</p>
+                    </div>
+                </div>
+
+                <div class="contact-form-container">
+                    <form class="contact-form" id="contactForm" action="https://formsubmit.co/v.litvinov55@gmail.com" method="POST">
+                        <h2>Send Us a Message</h2>
+                        
+                        <div class="form-group">
+                            <label for="fullName">Full Name *</label>
+                            <input type="text" id="fullName" name="fullName" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="email">Email Address *</label>
+                            <input type="email" id="email" name="email" required>
+                            <input type="hidden" name="_next" value="https://yourdomain.com/contact.html?success=true">
+                            <input type="hidden" name="_subject" value="New Contact Form Submission - Go Beyond">
+                            <input type="hidden" name="_captcha" value="false">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="currentRole">Current Role *</label>
+                            <select id="currentRole" name="currentRole" required>
+                                <option value="">Select your current role</option>
+                                <option value="store-manager">Store Manager</option>
+                                <option value="multi-unit-leader">Multi-Unit Leader</option>
+                                <option value="retail-professional">Retail Professional</option>
+                                <option value="looking-for-opportunity">Looking for my next opportunity</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Area of Interest *</label>
+                            <div class="checkbox-group">
+                                <label class="checkbox-label">
+                                    <input type="checkbox" name="interests" value="operations">
+                                    <span class="checkmark"></span>
+                                    Operations
+                                </label>
+                                <label class="checkbox-label">
+                                    <input type="checkbox" name="interests" value="field-leadership">
+                                    <span class="checkmark"></span>
+                                    Field Leadership
+                                </label>
+                                <label class="checkbox-label">
+                                    <input type="checkbox" name="interests" value="marketing">
+                                    <span class="checkmark"></span>
+                                    Marketing
+                                </label>
+                                <label class="checkbox-label">
+                                    <input type="checkbox" name="interests" value="career-coaching">
+                                    <span class="checkmark"></span>
+                                    Career Coaching
+                                </label>
+                                <label class="checkbox-label">
+                                    <input type="checkbox" name="interests" value="general-inquiry">
+                                    <span class="checkmark"></span>
+                                    General Inquiry
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="question">Your Question *</label>
+                            <textarea id="question" name="question" rows="5" required placeholder="Tell us about your career goals and how we can help..."></textarea>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="privacy" required>
+                                <span class="checkmark"></span>
+                                I agree to the <a href="#" class="privacy-link">Privacy Policy</a> and <a href="#" class="privacy-link">Terms of Service</a>
+                            </label>
+                        </div>
+
+                        <button type="submit" class="btn-submit">
+                            ➡ Send My Question
+                        </button>
+
+                        <p class="confirmation-note">
+                            We respond to all inquiries within 2 business days.
+                        </p>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <a href="index.html" class="logo-link">
+                        <h3 class="logo">Go | BEYOND</h3>
+                    </a>
+                </div>
+                <div class="footer-links">
+                    <a href="index.html#courses" class="footer-link">Courses</a>
+                    <a href="contact.html" class="footer-link">Contact</a>
+                    <a href="#" class="footer-link">Privacy</a>
+                    <a href="#" class="footer-link">Terms</a>
+                </div>
+                <div class="social-links">
+                    <a href="#" class="social-link">LinkedIn</a>
+                    <a href="#" class="social-link">Instagram</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
