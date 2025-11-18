@@ -12,7 +12,7 @@ const courseData = {
             'Change management and organizational development',
             'Data-driven decision making and KPI optimization'
         ],
-        lessons: '50 lessons across 10 modules'
+        lessons: '50 lessons across 10 chapters'
     },
     'retail-operations': {
         title: 'Retail Operations',
@@ -26,7 +26,7 @@ const courseData = {
             'Customer experience optimization',
             'Cross-functional project management'
         ],
-        lessons: '52 lessons across 10 modules'
+        lessons: '52 lessons across 10 chapters'
     },
     'marketing': {
         title: 'Marketing',
@@ -40,7 +40,7 @@ const courseData = {
             'Customer journey mapping and experience design',
             'Marketing campaign planning and execution'
         ],
-        lessons: '63 lessons across 10 modules'
+        lessons: '63 lessons across 10 chapters'
     },
     'foundation': {
         title: 'Foundation of Success',
@@ -54,7 +54,7 @@ const courseData = {
             'Professional networking and relationship building',
             'Career planning and goal setting'
         ],
-        lessons: '26 lessons across 5 modules'
+        lessons: '26 lessons across 5 chapters'
     },
     'land-job': {
         title: 'Land the Job',

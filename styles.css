@@ -596,6 +596,75 @@ body {
     background-color: var(--white);
 }
 
+.why-benefits {
+    margin-top: 40px;
+    max-width: 1000px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.why-benefits-title {
+    font-family: 'Alice', serif;
+    font-size: 28px;
+    font-weight: 400;
+    color: var(--dark-green);
+    text-align: center;
+    margin-bottom: 16px;
+}
+
+.why-benefits-text {
+    color: var(--text-light);
+    font-size: 18px;
+    line-height: 1.7;
+    text-align: center;
+    margin: 0 auto 28px;
+}
+
+.why-benefits-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 32px;
+    align-items: center;
+}
+
+.benefit-bullets {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.benefit-bullets li {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    background-color: var(--light-green);
+    border-radius: 12px;
+    padding: 16px;
+}
+
+.benefit-bullets li p {
+    color: var(--dark-green);
+    line-height: 1.6;
+    font-size: 12px;
+    text-align: left;
+}
+
+.benefits-image {
+    border-radius: 16px;
+    overflow: hidden;
+    background: var(--white);
+}
+
+.benefits-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
 .founder-testimonials {
     display: flex;
     flex-direction: column;
@@ -756,6 +825,7 @@ body {
     color: var(--coral);
     font-weight: bold;
     margin-bottom: 10px;
+    line-height: 1;
 }
 
 .testimonial-name {
@@ -904,11 +974,18 @@ body {
     margin-bottom: 20px;
 }
 
+.pricing-price-small {
+    font-size: 14px;
+    color: var(--text-light);
+    font-weight: 400;
+}
+
 .final-subtitle {
     font-size: 18px;
     opacity: 0.9;
     margin-bottom: 40px;
     line-height: 1.6;
+    text-align: center;
 }
 
 .final-buttons {
@@ -1634,6 +1711,10 @@ body {
         gap: 40px;
     }
     
+    .why-benefits-grid {
+        grid-template-columns: 1fr;
+    }
+    
     .testimonial {
         flex-direction: column;
         text-align: center;
@@ -1748,12 +1829,11 @@ body {
     }
     
     .founder-testimonial:nth-child(2) {
-        flex-direction: column;
+        flex-direction: column-reverse;
     }
     
     .founder-image {
-        width: 150px;
-        height: 150px;
+        width: 100%;
         margin: 0 auto 20px;
     }
     
