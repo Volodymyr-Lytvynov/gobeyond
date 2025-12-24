@@ -57,16 +57,16 @@ const courseData = {
         lessons: '26 lessons across 5 chapters'
     },
     'land-job': {
-        title: 'Land the Job',
+        title: 'Tools for a Strong Job Search',
         subtitle: 'Master the interview process and negotiation skills',
-        overview: 'Get the job you want with confidence. Learn proven strategies for job searching, interviewing, salary negotiation, and making a strong first impression in corporate environments.',
+        overview: 'This module gives you practical tools to strengthen your job search. You’ll learn how to build a strong resume, improve your LinkedIn presence, expand your network, prepare for interviews, and stay organized throughout the process.',
         learning: [
-            'Resume writing and LinkedIn optimization',
-            'Interview preparation and techniques',
-            'Salary negotiation and benefits discussion',
-            'Professional networking and referrals',
-            'Corporate culture navigation',
-            'First 90 days success strategies'
+            'How to create a clear and effective resume',
+            'How to optimize your LinkedIn profile',
+            'How to build and grow your network',
+            'How to prepare for interviews with confidence',
+            'How to stay organized during your job search',
+            'How to use AI to support your overall strategy'
         ],
         lessons: '6 lessons'
     }
