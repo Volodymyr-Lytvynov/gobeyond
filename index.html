@@ -387,34 +387,49 @@ src="https://www.facebook.com/tr?id=4568659726790890&ev=PageView&noscript=1"
         </div>
     </section>
 
-    <!-- Lead Capture Popups -->
-    <div id="leadModal" class="modal">
+    <!-- Newsletter modal -->
+    <div id="leadModal" class="modal modal-newsletter" aria-hidden="true">
         <div class="modal-content lead-modal">
-            <span class="close">×</span>
+            <button type="button" class="close newsletter-modal-close" aria-label="Close">&times;</button>
             <div class="lead-header">
-                <h2 class="lead-title"></h2>
-                <p class="lead-subtitle"></p>
+                <h2 class="lead-title">Subscribe and Win a Free Seat in Go Beyond</h2>
+                <p class="lead-subtitle">Join the Go Beyond newsletter for practical retail-to-corporate career tips, insider advice, and a chance to win full course access.</p>
             </div>
-            <div class="lead-form">
-                <form id="leadForm" action="/" method="POST">
-                    <div class="form-group">
-                        <label for="leadEmail">Email Address *</label>
-                        <input type="email" id="leadEmail" name="email" required="">
-                    </div>
-                    <div class="form-group">
-                        <label for="leadName">Full Name *</label>
-                        <input type="text" id="leadName" name="name" required="">
-                    </div>
-                    <input type="hidden" name="_next" value="https://yourdomain.com/index.html?success=true">
-                    <input type="hidden" name="_subject" value="New Lead Capture - Go Beyond">
-                    <input type="hidden" name="_captcha" value="false">
-                    <input type="hidden" name="leadType" id="leadType" value="">
-                    <button type="submit" class="btn-lead-submit"></button>
-                </form>
-                <p class="lead-disclaimer">We respect your privacy. Unsubscribe at any time.</p>
+            <div class="lead-form newsletter-modal-body">
+                <div id="newsletterModalFormWrap" class="newsletter-modal-form-wrap">
+                    <form id="leadForm" action="#" method="POST" novalidate>
+                        <div class="form-group">
+                            <label for="leadFirstName">First name *</label>
+                            <input type="text" id="leadFirstName" name="first_name" required autocomplete="given-name">
+                        </div>
+                        <div class="form-group">
+                            <label for="leadEmail">Email address *</label>
+                            <input type="email" id="leadEmail" name="email" required autocomplete="email">
+                        </div>
+                        <input type="hidden" name="source" value="popup">
+                        <input type="hidden" name="campaign" value="retail_to_corporate_2026">
+                        <input type="hidden" name="_subject" value="Go Beyond Newsletter — source: popup — campaign: retail_to_corporate_2026">
+                        <input type="hidden" name="_captcha" value="false">
+                        <input type="hidden" name="_ajax" value="true">
+                        <p class="lead-form-error" id="leadFormError" role="alert" hidden></p>
+                        <button type="submit" class="btn-lead-submit">Enter to Win</button>
+                    </form>
+                    <p class="lead-disclaimer">No spam. Just real career insight for retail leaders. Unsubscribe anytime.</p>
+                    <p class="newsletter-modal-alt"><a href="newsletter.html" class="newsletter-modal-alt-link">Prefer to sign up on a dedicated page?</a></p>
+                </div>
+                <div id="newsletterModalSuccess" class="newsletter-modal-success" hidden>
+                    <p class="newsletter-success-icon" aria-hidden="true">✓</p>
+                    <h3 class="newsletter-success-title">You&rsquo;re in.</h3>
+                    <p class="newsletter-success-text">Check your inbox for next steps&mdash;and good luck in the drawing for a free seat.</p>
+                    <p class="newsletter-success-foot">We&rsquo;re glad you&rsquo;re taking the next step from store to corporate.</p>
+                </div>
             </div>
         </div>
     </div>
+
+    <button type="button" id="newsletterFloatBtn" class="newsletter-float-btn" aria-label="Win a free seat — open signup">
+        Win a Free Seat
+    </button>
 
     <!-- Course Modal -->
     <div id="courseModal" class="modal">
@@ -454,6 +469,7 @@ src="https://www.facebook.com/tr?id=4568659726790890&ev=PageView&noscript=1"
                 <div class="footer-links">
                     <a href="#courses" class="footer-link">Courses</a>
                     <a href="contact.html" class="footer-link">Contact</a>
+                    <a href="newsletter.html" class="footer-link">Newsletter</a>
                     <a href="#" class="footer-link">Privacy</a>
                     <a href="#" class="footer-link">Terms</a>
                 </div>
