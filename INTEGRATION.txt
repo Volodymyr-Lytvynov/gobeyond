@@ -1,38 +1,36 @@
 Go Beyond — Newsletter & form integration
 =========================================
 
-1) FormSubmit (current placeholder)
--------------------------------------
-Replace REPLACE_WITH_YOUR_EMAIL everywhere it appears with the same email address you activate at https://formsubmit.co
+1) Kit (ConvertKit) embed
+-------------------------
+The newsletter signup uses the same Kit form in two places:
 
-Files to update:
-  - script.js          → constant FORM_SUBMIT_EMAIL (popup uses AJAX: https://formsubmit.co/ajax/YOUR_EMAIL)
-  - newsletter.html    → single form action="https://formsubmit.co/YOUR_EMAIL" (mid-page CTA scrolls to #newsletter-signup)
+  - index.html → popup (#newsletterModalFormWrap)
+  - newsletter.html → hero (#newsletter-signup)
 
-After the first submission, confirm the address via FormSubmit’s email so forms keep working.
+Embed snippet (uid 3c3c125278):
+  <script async data-uid="3c3c125278" src="https://daniela-quiroga.kit.com/3c3c125278/index.js"></script>
 
-Redirect after landing-page submit:
-  - Hidden field _next is set to https://joingobeyond.com/newsletter.html?thanks=1
-  - script.js shows the thank-you state when ?thanks=1 or ?success=true is present.
+Do not duplicate the uid on a single page with a third script unless you want a third copy of the form.
 
-Subject line tagging (FormSubmit):
-  - _subject includes "source: popup" or "source: newsletter_landing" and campaign id retail_to_corporate_2026 for filtering in your inbox.
+Kit dashboard — recommended checks:
+  - If Kit’s own modal / slide-in / sticky bar is enabled for this form, disable it so only YOUR site popup + landing page show the form (avoids double popups).
+  - Optional: set an after-subscribe redirect to https://joingobeyond.com/newsletter.html?thanks=1 for Meta landing traffic; script.js still shows the thank-you panel when ?thanks=1 or ?success=true is present.
+  - Tag subscribers by source in Kit using automations or custom fields if needed (site no longer sends hidden source/campaign fields).
 
-2) Migrating to Mailchimp, Kit, beehiiv, etc.
----------------------------------------------
-- Swap each <form action="..."> to your provider’s endpoint or embed their form snippet.
-- Keep hidden fields source and campaign (or map them to your ESP’s custom fields / tags).
-- Popup: keep the AJAX pattern if your ESP supports JSON POST; otherwise POST the form in a new tab or replace the modal body with the provider’s iframe/embed.
-- Update GA4/Meta events in script.js only if your provider uses a different success callback.
+Success tracking on the site:
+  - script.js watches for Kit’s .formkit-alert-success inside the popup and landing containers, then sets localStorage (gb_newsletter_subscribed), fires GA4 generate_lead + Meta Lead, and hides the floating CTA.
+
+2) Contact form
+---------------
+contact.html may still use FormSubmit or another handler — unchanged by the Kit newsletter work.
 
 3) Google Analytics 4 & Meta Pixel
 ----------------------------------
-Events fired from script.js:
-  - generate_lead (GA4) + Lead (Meta) — popup submit, landing thank-you page load
-  - newsletter_float_click (GA4) + NewsletterFloatClick (Meta) — floating button click (once per session)
-
-Register custom Meta events in Events Manager if you use them in ad optimization.
+Events from script.js:
+  - generate_lead (GA4) + Lead (Meta) — after Kit success in popup/landing (MutationObserver), or when landing loads with ?thanks=1
+  - newsletter_float_click (GA4) + NewsletterFloatClick (Meta) — floating button (once per session)
 
 4) Pretty URL /newsletter
 -------------------------
-GitHub Pages serves newsletter.html as /newsletter.html. To use /newsletter, add a redirect on your host (e.g. Netlify _redirects, Cloudflare Page Rules, or Apache/nginx rewrite).
+To serve /newsletter instead of /newsletter.html, add a redirect on your host (e.g. Netlify _redirects, Cloudflare, Apache/nginx).

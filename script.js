@@ -72,9 +72,6 @@ const courseData = {
     }
 };
 
-// --- Newsletter: FormSubmit email (replace with your FormSubmit-registered address; see INTEGRATION.txt)
-const FORM_SUBMIT_EMAIL = 'REPLACE_WITH_YOUR_EMAIL';
-
 const NL_STORAGE_SUBSCRIBED = 'gb_newsletter_subscribed';
 const NL_SESSION_DISMISSED = 'gb_nl_dismissed';
 const NL_SESSION_AUTO_SHOWN = 'gb_nl_modal_shown';
@@ -133,8 +130,25 @@ function trackNewsletterFloatClick() {
     }
 }
 
-function formSubmitEmailConfigured() {
-    return FORM_SUBMIT_EMAIL && FORM_SUBMIT_EMAIL.indexOf('REPLACE') === -1 && FORM_SUBMIT_EMAIL.indexOf('@') !== -1;
+function wireKitFormSuccess(container, source) {
+    if (!container || typeof MutationObserver === 'undefined') return;
+    var fired = false;
+    var obs = new MutationObserver(function() {
+        if (fired) return;
+        var ok = container.querySelector('.formkit-alert-success');
+        if (ok && ok.textContent && ok.textContent.trim().length > 0) {
+            fired = true;
+            obs.disconnect();
+            markNewsletterSubscribed();
+            trackNewsletterLead(source);
+            var floatBtn = document.getElementById('newsletterFloatBtn');
+            if (floatBtn) floatBtn.classList.add('is-hidden-subscribed');
+            try {
+                sessionStorage.setItem(NL_SESSION_AUTO_SHOWN, '1');
+            } catch (e) { /* ignore */ }
+        }
+    });
+    obs.observe(container, { childList: true, subtree: true, attributes: true, attributeFilter: ['class'] });
 }
 
 // Modal functionality
@@ -273,22 +287,9 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     var newsletterFormWrap = document.getElementById('newsletterModalFormWrap');
-    var newsletterSuccess = document.getElementById('newsletterModalSuccess');
-    var leadForm = document.getElementById('leadForm');
-    var leadFormError = document.getElementById('leadFormError');
 
     function resetNewsletterModalToForm() {
         if (newsletterFormWrap) newsletterFormWrap.hidden = false;
-        if (newsletterSuccess) newsletterSuccess.hidden = true;
-        if (leadFormError) {
-            leadFormError.hidden = true;
-            leadFormError.textContent = '';
-        }
-    }
-
-    function showNewsletterModalSuccess() {
-        if (newsletterFormWrap) newsletterFormWrap.hidden = true;
-        if (newsletterSuccess) newsletterSuccess.hidden = false;
     }
 
     function openNewsletterModal() {
@@ -301,48 +302,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
     window.openNewsletterModal = openNewsletterModal;
 
-    if (leadForm) {
-        leadForm.addEventListener('submit', function(e) {
-            e.preventDefault();
-            if (!formSubmitEmailConfigured()) {
-                if (leadFormError) {
-                    leadFormError.textContent = 'Signup is not configured yet. Please add your email in script.js (FormSubmit).';
-                    leadFormError.hidden = false;
-                }
-                return;
-            }
-
-            var fd = new FormData(leadForm);
-            var url = 'https://formsubmit.co/ajax/' + encodeURIComponent(FORM_SUBMIT_EMAIL);
-            fetch(url, {
-                method: 'POST',
-                body: fd,
-                headers: { Accept: 'application/json' }
-            })
-                .then(function(res) {
-                    if (!res.ok) throw new Error('network');
-                    return res.json();
-                })
-                .then(function(data) {
-                    if (data && data.success === false && data.message) {
-                        throw new Error(data.message);
-                    }
-                    markNewsletterSubscribed();
-                    trackNewsletterLead('popup');
-                    showNewsletterModalSuccess();
-                    var floatBtnAfter = document.getElementById('newsletterFloatBtn');
-                    if (floatBtnAfter) floatBtnAfter.classList.add('is-hidden-subscribed');
-                    try {
-                        sessionStorage.setItem(NL_SESSION_AUTO_SHOWN, '1');
-                    } catch (err) { /* ignore */ }
-                })
-                .catch(function() {
-                    if (leadFormError) {
-                        leadFormError.textContent = 'Something went wrong. Please try again or use the newsletter page.';
-                        leadFormError.hidden = false;
-                    }
-                });
-        });
+    if (newsletterFormWrap) {
+        wireKitFormSuccess(newsletterFormWrap, 'popup');
     }
 
     var floatBtn = document.getElementById('newsletterFloatBtn');
@@ -450,6 +411,11 @@ document.addEventListener('DOMContentLoaded', function() {
 function initNewsletterLandingPage() {
     var page = document.getElementById('newsletterPage');
     if (!page) return;
+
+    var signupBlock = document.getElementById('newsletter-signup');
+    if (signupBlock) {
+        wireKitFormSuccess(signupBlock, 'newsletter_landing');
+    }
 
     var params = new URLSearchParams(window.location.search);
     if (params.get('thanks') === '1' || params.get('success') === 'true') {
