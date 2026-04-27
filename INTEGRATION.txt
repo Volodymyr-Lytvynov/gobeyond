@@ -1,0 +1,36 @@
+Go Beyond — Newsletter & form integration
+=========================================
+
+1) Kit (ConvertKit) embed
+-------------------------
+The newsletter signup uses the same Kit form in two places:
+
+  - index.html → popup (#newsletterModalFormWrap)
+  - newsletter.html → hero (#newsletter-signup)
+
+Embed snippet (uid 3c3c125278):
+  <script async data-uid="3c3c125278" src="https://daniela-quiroga.kit.com/3c3c125278/index.js"></script>
+
+Do not duplicate the uid on a single page with a third script unless you want a third copy of the form.
+
+Kit dashboard — recommended checks:
+  - If Kit’s own modal / slide-in / sticky bar is enabled for this form, disable it so only YOUR site popup + landing page show the form (avoids double popups).
+  - Optional: set an after-subscribe redirect to https://joingobeyond.com/newsletter.html?thanks=1 for Meta landing traffic; script.js still shows the thank-you panel when ?thanks=1 or ?success=true is present.
+  - Tag subscribers by source in Kit using automations or custom fields if needed (site no longer sends hidden source/campaign fields).
+
+Success tracking on the site:
+  - script.js watches for Kit’s .formkit-alert-success inside the popup and landing containers, then sets localStorage (gb_newsletter_subscribed), fires GA4 generate_lead + Meta Lead, and hides the floating CTA.
+
+2) Contact form
+---------------
+contact.html may still use FormSubmit or another handler — unchanged by the Kit newsletter work.
+
+3) Google Analytics 4 & Meta Pixel
+----------------------------------
+Events from script.js:
+  - generate_lead (GA4) + Lead (Meta) — after Kit success in popup/landing (MutationObserver), or when landing loads with ?thanks=1
+  - newsletter_float_click (GA4) + NewsletterFloatClick (Meta) — floating button (once per session)
+
+4) Pretty URL /newsletter
+-------------------------
+To serve /newsletter instead of /newsletter.html, add a redirect on your host (e.g. Netlify _redirects, Cloudflare, Apache/nginx).

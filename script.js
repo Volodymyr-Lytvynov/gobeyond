@@ -72,34 +72,84 @@ const courseData = {
     }
 };
 
-// Lead capture data
-const leadCaptureData = {
-    'career-quiz': {
-        title: "What's Your Best Corporate Move?",
-        subtitle: "Take our 3-question Career Roadmap Quiz and discover which corporate path fits your retail experience",
-        buttonText: "Take the Quiz"
-    },
-    'insider-guide': {
-        title: "5 Things Corporate Hiring Managers Wish You Knew",
-        subtitle: "Get insider strategies from former retail leaders who've made the transition to corporate roles",
-        buttonText: "Get Free Guide"
-    },
-    'resume-template': {
-        title: "Your Corporate-Ready Resume Starts Here",
-        subtitle: "Download our proven resume template pack designed specifically for retail-to-corporate transitions",
-        buttonText: "Download Templates"
-    },
-    'mini-class': {
-        title: "From Store Manager to Corporate: Your First Step",
-        subtitle: "Watch our free 30-minute preview class and learn the first steps to corporate success",
-        buttonText: "Watch Free Preview"
-    },
-    'success-checklist': {
-        title: "Are You Ready for Corporate?",
-        subtitle: "Get our comprehensive readiness checklist to assess your corporate career readiness",
-        buttonText: "Get Checklist"
+const NL_STORAGE_SUBSCRIBED = 'gb_newsletter_subscribed';
+const NL_SESSION_DISMISSED = 'gb_nl_dismissed';
+const NL_SESSION_AUTO_SHOWN = 'gb_nl_modal_shown';
+const NL_SESSION_FLOAT_SENT = 'gb_nl_float_click_sent';
+const NL_SESSION_CONVERSION = 'gb_nl_conversion_sent';
+
+function isNewsletterSubscribed() {
+    try {
+        return localStorage.getItem(NL_STORAGE_SUBSCRIBED) === 'true';
+    } catch (e) {
+        return false;
     }
-};
+}
+
+function markNewsletterSubscribed() {
+    try {
+        localStorage.setItem(NL_STORAGE_SUBSCRIBED, 'true');
+    } catch (e) { /* ignore */ }
+}
+
+function trackNewsletterLead(source) {
+    var key = NL_SESSION_CONVERSION + '_' + source;
+    try {
+        if (sessionStorage.getItem(key)) return;
+        sessionStorage.setItem(key, '1');
+    } catch (e) { /* still fire events */ }
+
+    if (typeof gtag === 'function') {
+        gtag('event', 'generate_lead', {
+            event_category: 'newsletter',
+            source: source
+        });
+    }
+    if (typeof fbq === 'function') {
+        fbq('track', 'Lead', {
+            content_name: 'newsletter',
+            source: source
+        });
+    }
+}
+
+function trackNewsletterFloatClick() {
+    try {
+        if (sessionStorage.getItem(NL_SESSION_FLOAT_SENT)) return;
+        sessionStorage.setItem(NL_SESSION_FLOAT_SENT, '1');
+    } catch (e) { /* ignore */ }
+
+    if (typeof gtag === 'function') {
+        gtag('event', 'newsletter_float_click', {
+            event_category: 'newsletter',
+            source: 'floating_button'
+        });
+    }
+    if (typeof fbq === 'function') {
+        fbq('trackCustom', 'NewsletterFloatClick', { source: 'floating_button' });
+    }
+}
+
+function wireKitFormSuccess(container, source) {
+    if (!container || typeof MutationObserver === 'undefined') return;
+    var fired = false;
+    var obs = new MutationObserver(function() {
+        if (fired) return;
+        var ok = container.querySelector('.formkit-alert-success');
+        if (ok && ok.textContent && ok.textContent.trim().length > 0) {
+            fired = true;
+            obs.disconnect();
+            markNewsletterSubscribed();
+            trackNewsletterLead(source);
+            var floatBtn = document.getElementById('newsletterFloatBtn');
+            if (floatBtn) floatBtn.classList.add('is-hidden-subscribed');
+            try {
+                sessionStorage.setItem(NL_SESSION_AUTO_SHOWN, '1');
+            } catch (e) { /* ignore */ }
+        }
+    });
+    obs.observe(container, { childList: true, subtree: true, attributes: true, attributeFilter: ['class'] });
+}
 
 // Modal functionality
 document.addEventListener('DOMContentLoaded', function() {
@@ -107,29 +157,26 @@ document.addEventListener('DOMContentLoaded', function() {
     const leadModal = document.getElementById('leadModal');
     const closeBtns = document.querySelectorAll('.close');
     const courseCards = document.querySelectorAll('.course-card');
-    
-    // Mobile navigation functionality
+
     const hamburger = document.getElementById('hamburger');
     const navMenu = document.querySelector('.nav-menu');
-    
+
     if (hamburger && navMenu) {
         hamburger.addEventListener('click', function() {
             hamburger.classList.toggle('active');
             navMenu.classList.toggle('mobile-open');
             document.body.style.overflow = navMenu.classList.contains('mobile-open') ? 'hidden' : 'auto';
         });
-        
-        // Close mobile menu when clicking on a link
+
         const navLinks = navMenu.querySelectorAll('.nav-link');
-        navLinks.forEach(link => {
+        navLinks.forEach(function(link) {
             link.addEventListener('click', function() {
                 hamburger.classList.remove('active');
                 navMenu.classList.remove('mobile-open');
                 document.body.style.overflow = 'auto';
             });
         });
-        
-        // Close mobile menu when clicking outside
+
         document.addEventListener('click', function(event) {
             if (!hamburger.contains(event.target) && !navMenu.contains(event.target)) {
                 hamburger.classList.remove('active');
@@ -139,19 +186,17 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    // Smooth scroll for anchor links
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function (e) {
-            e.preventDefault();
-            const target = document.querySelector(this.getAttribute('href'));
+    document.querySelectorAll('a[href^="#"]').forEach(function(anchor) {
+        anchor.addEventListener('click', function(e) {
+            var href = this.getAttribute('href');
+            if (href === '#' || href.length < 2) return;
+            var target = document.querySelector(href);
             if (target) {
-                const headerHeight = document.querySelector('.header').offsetHeight;
-                const targetPosition = target.offsetTop - headerHeight - 20;
-                
-                window.scrollTo({
-                    top: targetPosition,
-                    behavior: 'smooth'
-                });
+                e.preventDefault();
+                var header = document.querySelector('.header');
+                var headerHeight = header ? header.offsetHeight : 0;
+                var targetPosition = target.offsetTop - headerHeight - 20;
+                window.scrollTo({ top: targetPosition, behavior: 'smooth' });
             }
         });
     });
@@ -180,168 +225,228 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
-    // Close modals when close buttons are clicked
-    closeBtns.forEach(btn => {
+    function closeCourseModal() {
+        if (!courseModal) return;
+        courseModal.style.display = 'none';
+        document.body.style.overflow = 'auto';
+    }
+
+    function closeNewsletterModal() {
+        if (!leadModal) return;
+        leadModal.style.display = 'none';
+        leadModal.setAttribute('aria-hidden', 'true');
+        document.body.style.overflow = 'auto';
+        try {
+            sessionStorage.setItem(NL_SESSION_DISMISSED, '1');
+        } catch (e) { /* ignore */ }
+    }
+
+    closeBtns.forEach(function(btn) {
         btn.addEventListener('click', function() {
-            if (courseModal.style.display === 'block') {
+            if (courseModal && courseModal.style.display === 'block') {
                 closeCourseModal();
             }
-            if (leadModal.style.display === 'block') {
-                closeLeadModal();
+            if (leadModal && leadModal.style.display === 'block') {
+                closeNewsletterModal();
             }
         });
     });
 
-    // Close modals when clicking outside of them
     window.addEventListener('click', function(event) {
-        if (event.target === courseModal) {
+        if (courseModal && event.target === courseModal) {
             closeCourseModal();
         }
-        if (event.target === leadModal) {
-            closeLeadModal();
+        if (leadModal && event.target === leadModal) {
+            closeNewsletterModal();
         }
     });
 
-    // Close modals with Escape key
     document.addEventListener('keydown', function(event) {
-        if (event.key === 'Escape') {
-            if (courseModal.style.display === 'block') {
-                closeCourseModal();
-            }
-            if (leadModal.style.display === 'block') {
-                closeLeadModal();
-            }
+        if (event.key !== 'Escape') return;
+        if (courseModal && courseModal.style.display === 'block') {
+            closeCourseModal();
+        }
+        if (leadModal && leadModal.style.display === 'block') {
+            closeNewsletterModal();
         }
     });
 
     function openModal(courseId) {
-        const course = courseData[courseId];
-        if (!course) return;
+        var course = courseData[courseId];
+        if (!course || !courseModal) return;
 
-        // Populate modal content
         document.querySelector('.modal-title').textContent = course.title;
         document.querySelector('.modal-subtitle').textContent = course.subtitle;
         document.querySelector('.modal-overview').textContent = course.overview;
         document.querySelector('.modal-lessons').textContent = course.lessons;
 
-        // Set modal image to match course card image
-        const modalImage = document.querySelector('.modal-image');
-        const courseCard = document.querySelector(`[data-course="${courseId}"]`);
-        if (courseCard) {
-            const courseCardImage = courseCard.querySelector('.course-image img');
+        var modalImage = document.querySelector('.modal-image');
+        var courseCard = document.querySelector('[data-course="' + courseId + '"]');
+        if (courseCard && modalImage) {
+            var courseCardImage = courseCard.querySelector('.course-image img');
             if (courseCardImage) {
-                modalImage.style.backgroundImage = `url(${courseCardImage.src})`;
+                modalImage.style.backgroundImage = 'url(' + courseCardImage.src + ')';
                 modalImage.style.backgroundSize = 'cover';
                 modalImage.style.backgroundPosition = 'center';
             }
         }
 
-        // Populate learning list
-        const learningList = document.querySelector('.modal-learning-list');
+        var learningList = document.querySelector('.modal-learning-list');
         learningList.innerHTML = '';
-        course.learning.forEach(item => {
-            const li = document.createElement('li');
+        course.learning.forEach(function(item) {
+            var li = document.createElement('li');
             li.textContent = item;
             learningList.appendChild(li);
         });
 
-        // Show modal
         courseModal.style.display = 'block';
-        document.body.style.overflow = 'hidden'; // Prevent background scrolling
-    }
-
-    function closeCourseModal() {
-        courseModal.style.display = 'none';
-        document.body.style.overflow = 'auto'; // Restore scrolling
-    }
-
-    function openLeadModal(leadType) {
-        const lead = leadCaptureData[leadType];
-        if (!lead) return;
-
-        // Populate lead modal content
-        document.querySelector('.lead-title').textContent = lead.title;
-        document.querySelector('.lead-subtitle').textContent = lead.subtitle;
-        document.querySelector('.btn-lead-submit').textContent = lead.buttonText;
-        
-        // Set the lead type for tracking
-        document.getElementById('leadType').value = leadType;
-
-        // Show modal
-        leadModal.style.display = 'block';
         document.body.style.overflow = 'hidden';
     }
 
-    function closeLeadModal() {
-        leadModal.style.display = 'none';
-        document.body.style.overflow = 'auto';
+    var newsletterFormWrap = document.getElementById('newsletterModalFormWrap');
+
+    function resetNewsletterModalToForm() {
+        if (newsletterFormWrap) newsletterFormWrap.hidden = false;
     }
 
-    // Modal button functionality
-    document.querySelector('.btn-modal-primary').addEventListener('click', function() {
-        alert('Enrollment process would start here!');
-    });
+    function openNewsletterModal() {
+        if (!leadModal || isNewsletterSubscribed()) return;
+        resetNewsletterModalToForm();
+        leadModal.style.display = 'block';
+        leadModal.setAttribute('aria-hidden', 'false');
+        document.body.style.overflow = 'hidden';
+    }
 
-    // Lead capture form functionality - now uses FormSubmit
-    const leadForm = document.getElementById('leadForm');
-    if (leadForm) {
-        // Check if lead form was successfully submitted
-        const urlParams = new URLSearchParams(window.location.search);
-        if (urlParams.get('success') === 'true') {
-            alert('Thank you! We\'ll send your free resource to your email.');
-            // Clean up URL
-            window.history.replaceState({}, document.title, window.location.pathname);
+    window.openNewsletterModal = openNewsletterModal;
+
+    if (newsletterFormWrap) {
+        wireKitFormSuccess(newsletterFormWrap, 'popup');
+    }
+
+    var floatBtn = document.getElementById('newsletterFloatBtn');
+    if (floatBtn && leadModal) {
+        if (isNewsletterSubscribed()) {
+            floatBtn.classList.add('is-hidden-subscribed');
+        }
+        floatBtn.addEventListener('click', function() {
+            trackNewsletterFloatClick();
+            if (isNewsletterSubscribed()) {
+                window.location.href = 'newsletter.html';
+                return;
+            }
+            openNewsletterModal();
+        });
+
+        function onScrollFloat() {
+            if (isNewsletterSubscribed()) return;
+            if (window.scrollY > 200) {
+                floatBtn.classList.add('is-visible');
+            } else {
+                floatBtn.classList.remove('is-visible');
+            }
+        }
+        window.addEventListener('scroll', onScrollFloat, { passive: true });
+        onScrollFloat();
+    }
+
+    function shouldShowAutoPopup() {
+        if (isNewsletterSubscribed()) return false;
+        try {
+            if (sessionStorage.getItem(NL_SESSION_DISMISSED)) return false;
+            if (sessionStorage.getItem(NL_SESSION_AUTO_SHOWN)) return false;
+        } catch (e) {
+            return true;
+        }
+        return true;
+    }
+
+    function tryAutoOpenNewsletter() {
+        if (!shouldShowAutoPopup() || !leadModal) return;
+        try {
+            sessionStorage.setItem(NL_SESSION_AUTO_SHOWN, '1');
+        } catch (e) { /* ignore */ }
+        openNewsletterModal();
+    }
+
+    if (leadModal) {
+        var isMobile = window.matchMedia('(max-width: 768px)').matches;
+
+        if (isMobile) {
+            var scrollFired = false;
+            function onScrollDepth() {
+                if (scrollFired || !shouldShowAutoPopup()) return;
+                var doc = document.documentElement;
+                var scrollable = doc.scrollHeight - window.innerHeight;
+                if (scrollable <= 0) return;
+                var pct = (window.scrollY / scrollable) * 100;
+                if (pct >= 45) {
+                    scrollFired = true;
+                    window.removeEventListener('scroll', onScrollDepth);
+                    tryAutoOpenNewsletter();
+                }
+            }
+            window.addEventListener('scroll', onScrollDepth, { passive: true });
+        } else {
+            var delayMs = 8000 + Math.floor(Math.random() * 4001);
+            var onExitIntent = function(e) {
+                if (e.clientY > 0) return;
+                if (!shouldShowAutoPopup()) return;
+                clearTimeout(timerId);
+                document.removeEventListener('mouseout', onExitIntent);
+                tryAutoOpenNewsletter();
+            };
+            var timerId = setTimeout(function() {
+                document.removeEventListener('mouseout', onExitIntent);
+                if (shouldShowAutoPopup()) {
+                    tryAutoOpenNewsletter();
+                }
+            }, delayMs);
+            document.addEventListener('mouseout', onExitIntent);
         }
     }
 
-    // Contact form functionality - now uses FormSubmit
-    const contactForm = document.getElementById('contactForm');
+    var urlParams = new URLSearchParams(window.location.search);
+
+    var contactForm = document.getElementById('contactForm');
     if (contactForm) {
-        // Check if form was successfully submitted
-        const urlParams = new URLSearchParams(window.location.search);
         if (urlParams.get('success') === 'true') {
             alert('Thank you for your message! We\'ll respond within 2 business days.');
-            // Clean up URL
             window.history.replaceState({}, document.title, window.location.pathname);
         }
     }
 
-    // Lead capture triggers
-    let hasShownExitIntent = false;
-    let hasShownScrollDepth = false;
-    let hasShownTimeBased = false;
-
-    // Exit intent detection
-    // document.addEventListener('mouseleave', function(e) {
-    //     if (e.clientY <= 0 && !hasShownExitIntent) {
-    //         hasShownExitIntent = true;
-    //         setTimeout(() => openLeadModal('career-quiz'), 1000);
-    //     }
-    // });
-
-    // // Scroll depth trigger
-    // window.addEventListener('scroll', function() {
-    //     const scrollPercent = (window.scrollY / (document.body.scrollHeight - window.innerHeight)) * 100;
-    //     if (scrollPercent > 60 && !hasShownScrollDepth) {
-    //         hasShownScrollDepth = true;
-    //         setTimeout(() => openLeadModal('insider-guide'), 3000);
-    //     }
-    // });
-
-    // Time-based trigger
-    setTimeout(() => {
-        if (!hasShownTimeBased) {
-            hasShownTimeBased = true;
-            openLeadModal('success-checklist');
-        }
-    }, 30000); // 30 seconds
-
-    // Course interest trigger
-    courseCards.forEach(card => {
-        card.addEventListener('mouseenter', function() {
-            if (!hasShownScrollDepth) {
-                setTimeout(() => openLeadModal('mini-class'), 5000);
-            }
+    var btnModalPrimary = document.querySelector('.btn-modal-primary');
+    if (btnModalPrimary) {
+        btnModalPrimary.addEventListener('click', function() {
+            alert('Enrollment process would start here!');
         });
-    });
+    }
+
+    initNewsletterLandingPage();
 });
+
+function initNewsletterLandingPage() {
+    var page = document.getElementById('newsletterPage');
+    if (!page) return;
+
+    var signupBlock = document.getElementById('newsletter-signup');
+    if (signupBlock) {
+        wireKitFormSuccess(signupBlock, 'newsletter_landing');
+    }
+
+    var params = new URLSearchParams(window.location.search);
+    if (params.get('thanks') === '1' || params.get('success') === 'true') {
+        markNewsletterSubscribed();
+        trackNewsletterLead('newsletter_landing');
+        showLandingSuccess();
+        window.history.replaceState({}, document.title, window.location.pathname);
+    }
+
+    function showLandingSuccess() {
+        document.querySelectorAll('.newsletter-hide-on-success').forEach(function(el) {
+            el.hidden = true;
+        });
+        var success = document.getElementById('newsletterLandingSuccess');
+        if (success) success.hidden = false;
+    }
+}
