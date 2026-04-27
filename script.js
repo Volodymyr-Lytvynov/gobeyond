@@ -201,9 +201,26 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
-    courseCards.forEach(function(card) {
-        card.addEventListener('click', function() {
-            var courseId = this.getAttribute('data-course');
+    // Open modal when course card is clicked; links have real href for GTM/Click URL
+    courseCards.forEach(card => {
+        card.addEventListener('click', function (e) {
+            const inLearnMore = e.target.closest('a.btn-course');
+            const openInNewTab =
+                e.button !== 0 || e.metaKey || e.ctrlKey || e.shiftKey;
+            if (inLearnMore && openInNewTab) {
+                return;
+            }
+            if (inLearnMore) {
+                e.preventDefault();
+            }
+            const courseId = this.getAttribute('data-course');
+            const linkUrl = this.getAttribute('data-url') || '';
+            window.dataLayer = window.dataLayer || [];
+            window.dataLayer.push({
+                event: 'gb_course_learn_more',
+                link_url: linkUrl,
+                course_id: courseId
+            });
             openModal(courseId);
         });
     });
