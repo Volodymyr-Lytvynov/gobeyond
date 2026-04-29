@@ -201,6 +201,12 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
+    document.querySelectorAll('.footer a[href="#"]').forEach(function (a) {
+        a.addEventListener('click', function (e) {
+            e.preventDefault();
+        });
+    });
+
     // Open modal when course card is clicked; links have real href for GTM/Click URL
     courseCards.forEach(card => {
         card.addEventListener('click', function (e) {
@@ -347,6 +353,20 @@ document.addEventListener('DOMContentLoaded', function() {
         }
         window.addEventListener('scroll', onScrollFloat, { passive: true });
         onScrollFloat();
+
+        var siteFooter = document.querySelector('.footer');
+        if (siteFooter && typeof IntersectionObserver !== 'undefined') {
+            var io = new IntersectionObserver(function (entries) {
+                entries.forEach(function (entry) {
+                    if (entry.isIntersecting) {
+                        floatBtn.classList.add('is-footer-obscured');
+                    } else {
+                        floatBtn.classList.remove('is-footer-obscured');
+                    }
+                });
+            }, { root: null, threshold: 0, rootMargin: '0px 0px 0px 0px' });
+            io.observe(siteFooter);
+        }
     }
 
     function shouldShowAutoPopup() {
@@ -372,6 +392,11 @@ document.addEventListener('DOMContentLoaded', function() {
         var isMobile = window.matchMedia('(max-width: 768px)').matches;
 
         if (isMobile) {
+            setTimeout(function () {
+                if (shouldShowAutoPopup()) {
+                    tryAutoOpenNewsletter();
+                }
+            }, 5000);
             var scrollFired = false;
             function onScrollDepth() {
                 if (scrollFired || !shouldShowAutoPopup()) return;
@@ -387,7 +412,7 @@ document.addEventListener('DOMContentLoaded', function() {
             }
             window.addEventListener('scroll', onScrollDepth, { passive: true });
         } else {
-            var delayMs = 8000 + Math.floor(Math.random() * 4001);
+            var delayMs = 5000;
             var onExitIntent = function(e) {
                 if (e.clientY > 0) return;
                 if (!shouldShowAutoPopup()) return;

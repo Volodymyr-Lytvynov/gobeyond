@@ -2009,6 +2009,14 @@ body {
     display: none;
 }
 
+/* Let footer/social links receive clicks; float sits above bottom on small screens. */
+.newsletter-float-btn.is-footer-obscured,
+.newsletter-float-btn.is-footer-obscured.is-visible {
+    opacity: 0 !important;
+    pointer-events: none !important;
+    transform: translateY(16px);
+}
+
 @media (max-width: 768px) {
     .newsletter-float-btn {
         left: 50%;
@@ -2022,6 +2030,10 @@ body {
 
     .newsletter-float-btn.is-visible {
         transform: translateX(-50%) translateY(0);
+    }
+
+    .newsletter-float-btn.is-footer-obscured.is-visible {
+        transform: translateX(-50%) translateY(16px);
     }
 }
 
