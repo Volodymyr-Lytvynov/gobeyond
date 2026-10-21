@@ -251,6 +251,7 @@
                 if (el.dataset.path) payload.path = el.dataset.path;
                 if (el.dataset.product) payload.product = el.dataset.product;
                 if (el.dataset.founder) payload.founder = el.dataset.founder;
+                if (el.dataset.gbLocation) payload.location = el.dataset.gbLocation;
                 pushEvent(name, payload);
             });
         });
