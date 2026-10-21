@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Go Beyond — Font comparison (Preview)</title>
+    <meta name="robots" content="noindex, nofollow">
+    <link rel="stylesheet" href="../gb-redesign.css">
+    <link href="https://fonts.googleapis.com/css2?family=Alice:wght@400&family=DM+Sans:wght@400;500;600;700&family=Fraunces:opsz,wght@9..144,400;9..144,600&family=Inter:wght@400;500;600;700&family=Lato:wght@300;400;500;600;700&family=Manrope:wght@400;500;600;700&family=Source+Sans+3:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        .font-compare {
+            background: var(--gb-cream, #f7f4ee);
+            padding: 40px 0 72px;
+        }
+
+        .font-compare__intro {
+            max-width: 720px;
+            margin: 0 auto 40px;
+        }
+
+        .font-compare__intro h1 {
+            font-family: 'Alice', serif;
+            font-size: clamp(28px, 3vw, 36px);
+            color: var(--gb-forest);
+            margin: 0 0 12px;
+        }
+
+        .font-compare__intro p {
+            margin: 0 0 8px;
+            font-size: 16px;
+            line-height: 1.55;
+            color: var(--gb-ink);
+        }
+
+        .font-compare__note {
+            font-size: 14px;
+            color: var(--gb-muted);
+        }
+
+        .font-compare__grid {
+            display: grid;
+            gap: 28px;
+        }
+
+        .specimen {
+            background: var(--gb-white, #fff);
+            border: 1px solid var(--gb-border, #e5e0d6);
+            border-radius: 14px;
+            overflow: hidden;
+        }
+
+        .specimen__label {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: baseline;
+            justify-content: space-between;
+            gap: 8px 16px;
+            padding: 14px 20px;
+            background: var(--gb-cream-deep, #efe9df);
+            border-bottom: 1px solid var(--gb-border, #e5e0d6);
+        }
+
+        .specimen__label strong {
+            font-size: 15px;
+            color: var(--gb-forest);
+        }
+
+        .specimen__label span {
+            font-size: 13px;
+            color: var(--gb-muted);
+        }
+
+        .specimen__body {
+            padding: 28px 24px 32px;
+        }
+
+        .specimen .gb-hero__eyebrow {
+            margin-bottom: 10px;
+        }
+
+        .specimen .gb-hero__title {
+            margin: 0 0 14px;
+            max-width: 18em;
+        }
+
+        .specimen .gb-hero__body {
+            margin: 0 0 28px;
+            max-width: 40em;
+        }
+
+        .specimen .gb-eyebrow {
+            margin-bottom: 10px;
+        }
+
+        .specimen .gb-title {
+            text-align: left;
+            margin: 0 0 14px;
+            max-width: 16em;
+        }
+
+        .specimen .gb-lead {
+            margin: 0;
+            max-width: 38em;
+        }
+
+        /* Pairings — change font-family only; sizes stay from gb-redesign.css */
+        .specimen--current .gb-hero__title,
+        .specimen--current .gb-title {
+            font-family: 'Alice', serif;
+        }
+
+        .specimen--current .gb-hero__body,
+        .specimen--current .gb-lead,
+        .specimen--current .gb-hero__eyebrow,
+        .specimen--current .gb-eyebrow {
+            font-family: 'Lato', sans-serif;
+        }
+
+        .specimen--manrope-lato .gb-hero__title,
+        .specimen--manrope-lato .gb-title {
+            font-family: 'Manrope', sans-serif;
+            font-weight: 600;
+        }
+
+        .specimen--manrope-lato .gb-hero__body,
+        .specimen--manrope-lato .gb-lead,
+        .specimen--manrope-lato .gb-hero__eyebrow,
+        .specimen--manrope-lato .gb-eyebrow {
+            font-family: 'Lato', sans-serif;
+        }
+
+        .specimen--inter-lato .gb-hero__title,
+        .specimen--inter-lato .gb-title {
+            font-family: 'Inter', sans-serif;
+            font-weight: 600;
+        }
+
+        .specimen--inter-lato .gb-hero__body,
+        .specimen--inter-lato .gb-lead,
+        .specimen--inter-lato .gb-hero__eyebrow,
+        .specimen--inter-lato .gb-eyebrow {
+            font-family: 'Lato', sans-serif;
+        }
+
+        .specimen--dmsans-lato .gb-hero__title,
+        .specimen--dmsans-lato .gb-title {
+            font-family: 'DM Sans', sans-serif;
+            font-weight: 600;
+        }
+
+        .specimen--dmsans-lato .gb-hero__body,
+        .specimen--dmsans-lato .gb-lead,
+        .specimen--dmsans-lato .gb-hero__eyebrow,
+        .specimen--dmsans-lato .gb-eyebrow {
+            font-family: 'Lato', sans-serif;
+        }
+
+        .specimen--manrope-source .gb-hero__title,
+        .specimen--manrope-source .gb-title {
+            font-family: 'Manrope', sans-serif;
+            font-weight: 600;
+        }
+
+        .specimen--manrope-source .gb-hero__body,
+        .specimen--manrope-source .gb-lead,
+        .specimen--manrope-source .gb-hero__eyebrow,
+        .specimen--manrope-source .gb-eyebrow {
+            font-family: 'Source Sans 3', sans-serif;
+        }
+
+        .specimen--fraunces-dmsans .gb-hero__title,
+        .specimen--fraunces-dmsans .gb-title {
+            font-family: 'Fraunces', serif;
+            font-weight: 600;
+        }
+
+        .specimen--fraunces-dmsans .gb-hero__body,
+        .specimen--fraunces-dmsans .gb-lead,
+        .specimen--fraunces-dmsans .gb-hero__eyebrow,
+        .specimen--fraunces-dmsans .gb-eyebrow {
+            font-family: 'DM Sans', sans-serif;
+        }
+
+        .font-compare__back {
+            display: inline-block;
+            margin-top: 28px;
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--gb-forest);
+            text-decoration: none;
+        }
+
+        .font-compare__back:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body class="gb-page">
+    <main class="font-compare">
+        <div class="gb-container">
+            <div class="font-compare__intro">
+                <h1>Font comparison for client review</h1>
+                <p>Same section layout and current sizes/spacing. Only typefaces change so you can judge the fonts themselves.</p>
+                <p class="font-compare__note">Snippets: hero title + body, and founders section heading + supporting copy. After you pick a pairing we can enlarge desktop type.</p>
+                <a class="font-compare__back" href="./index.html">&larr; Back to homepage preview</a>
+            </div>
+
+            <div class="font-compare__grid">
+                <article class="specimen specimen--current" id="current">
+                    <div class="specimen__label">
+                        <strong>Current</strong>
+                        <span>Alice headlines + Lato body</span>
+                    </div>
+                    <div class="specimen__body">
+                        <p class="gb-hero__eyebrow">Your experience can take you further</p>
+                        <h2 class="gb-hero__title">Your retail experience can take you beyond the store.</h2>
+                        <p class="gb-hero__body">You already understand customers, teams, performance and what it takes to make a business work on the ground. Go Beyond helps you understand where that experience can take you next.</p>
+                        <p class="gb-eyebrow">Meet the people behind Go Beyond</p>
+                        <h3 class="gb-title">We built the resource we wish we&rsquo;d had.</h3>
+                        <p class="gb-lead">We both built our careers in retail and experienced firsthand how difficult it can be to understand what comes after the store. Go Beyond grew out of the lessons we learned making that transition ourselves.</p>
+                    </div>
+                </article>
+
+                <article class="specimen specimen--manrope-lato" id="manrope-lato">
+                    <div class="specimen__label">
+                        <strong>Option A</strong>
+                        <span>Manrope headlines + Lato body</span>
+                    </div>
+                    <div class="specimen__body">
+                        <p class="gb-hero__eyebrow">Your experience can take you further</p>
+                        <h2 class="gb-hero__title">Your retail experience can take you beyond the store.</h2>
+                        <p class="gb-hero__body">You already understand customers, teams, performance and what it takes to make a business work on the ground. Go Beyond helps you understand where that experience can take you next.</p>
+                        <p class="gb-eyebrow">Meet the people behind Go Beyond</p>
+                        <h3 class="gb-title">We built the resource we wish we&rsquo;d had.</h3>
+                        <p class="gb-lead">We both built our careers in retail and experienced firsthand how difficult it can be to understand what comes after the store. Go Beyond grew out of the lessons we learned making that transition ourselves.</p>
+                    </div>
+                </article>
+
+                <article class="specimen specimen--inter-lato" id="inter-lato">
+                    <div class="specimen__label">
+                        <strong>Option B</strong>
+                        <span>Inter headlines + Lato body</span>
+                    </div>
+                    <div class="specimen__body">
+                        <p class="gb-hero__eyebrow">Your experience can take you further</p>
+                        <h2 class="gb-hero__title">Your retail experience can take you beyond the store.</h2>
+                        <p class="gb-hero__body">You already understand customers, teams, performance and what it takes to make a business work on the ground. Go Beyond helps you understand where that experience can take you next.</p>
+                        <p class="gb-eyebrow">Meet the people behind Go Beyond</p>
+                        <h3 class="gb-title">We built the resource we wish we&rsquo;d had.</h3>
+                        <p class="gb-lead">We both built our careers in retail and experienced firsthand how difficult it can be to understand what comes after the store. Go Beyond grew out of the lessons we learned making that transition ourselves.</p>
+                    </div>
+                </article>
+
+                <article class="specimen specimen--dmsans-lato" id="dmsans-lato">
+                    <div class="specimen__label">
+                        <strong>Option C</strong>
+                        <span>DM Sans headlines + Lato body</span>
+                    </div>
+                    <div class="specimen__body">
+                        <p class="gb-hero__eyebrow">Your experience can take you further</p>
+                        <h2 class="gb-hero__title">Your retail experience can take you beyond the store.</h2>
+                        <p class="gb-hero__body">You already understand customers, teams, performance and what it takes to make a business work on the ground. Go Beyond helps you understand where that experience can take you next.</p>
+                        <p class="gb-eyebrow">Meet the people behind Go Beyond</p>
+                        <h3 class="gb-title">We built the resource we wish we&rsquo;d had.</h3>
+                        <p class="gb-lead">We both built our careers in retail and experienced firsthand how difficult it can be to understand what comes after the store. Go Beyond grew out of the lessons we learned making that transition ourselves.</p>
+                    </div>
+                </article>
+
+                <article class="specimen specimen--manrope-source" id="manrope-source">
+                    <div class="specimen__label">
+                        <strong>Recommendation 1</strong>
+                        <span>Manrope headlines + Source Sans 3 body</span>
+                    </div>
+                    <div class="specimen__body">
+                        <p class="gb-hero__eyebrow">Your experience can take you further</p>
+                        <h2 class="gb-hero__title">Your retail experience can take you beyond the store.</h2>
+                        <p class="gb-hero__body">You already understand customers, teams, performance and what it takes to make a business work on the ground. Go Beyond helps you understand where that experience can take you next.</p>
+                        <p class="gb-eyebrow">Meet the people behind Go Beyond</p>
+                        <h3 class="gb-title">We built the resource we wish we&rsquo;d had.</h3>
+                        <p class="gb-lead">We both built our careers in retail and experienced firsthand how difficult it can be to understand what comes after the store. Go Beyond grew out of the lessons we learned making that transition ourselves.</p>
+                    </div>
+                </article>
+
+                <article class="specimen specimen--fraunces-dmsans" id="fraunces-dmsans">
+                    <div class="specimen__label">
+                        <strong>Recommendation 2</strong>
+                        <span>Fraunces headlines + DM Sans body</span>
+                    </div>
+                    <div class="specimen__body">
+                        <p class="gb-hero__eyebrow">Your experience can take you further</p>
+                        <h2 class="gb-hero__title">Your retail experience can take you beyond the store.</h2>
+                        <p class="gb-hero__body">You already understand customers, teams, performance and what it takes to make a business work on the ground. Go Beyond helps you understand where that experience can take you next.</p>
+                        <p class="gb-eyebrow">Meet the people behind Go Beyond</p>
+                        <h3 class="gb-title">We built the resource we wish we&rsquo;d had.</h3>
+                        <p class="gb-lead">We both built our careers in retail and experienced firsthand how difficult it can be to understand what comes after the store. Go Beyond grew out of the lessons we learned making that transition ourselves.</p>
+                    </div>
+                </article>
+            </div>
+
+            <a class="font-compare__back" href="./index.html">&larr; Back to homepage preview</a>
+        </div>
+    </main>
+</body>
+</html>
