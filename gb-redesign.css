@@ -171,8 +171,8 @@ body.gb-page {
 }
 
 .gb-title {
-    font-family: 'Alice', serif;
-    font-weight: 400;
+    font-family: 'Manrope', sans-serif;
+    font-weight: 600;
     font-size: clamp(30px, 3.6vw, 44px);
     line-height: 1.18;
     letter-spacing: -0.02em;
@@ -352,8 +352,8 @@ body.gb-page {
 }
 
 .gb-hero__title {
-    font-family: 'Alice', serif;
-    font-weight: 400;
+    font-family: 'Manrope', sans-serif;
+    font-weight: 600;
     font-size: clamp(32px, 3.4vw, 48px);
     line-height: 1.14;
     letter-spacing: -0.02em;
@@ -520,8 +520,8 @@ body.gb-page {
 }
 
 .gb-path__title {
-    font-family: 'Alice', serif;
-    font-weight: 400;
+    font-family: 'Manrope', sans-serif;
+    font-weight: 600;
     font-size: clamp(20px, 1.55vw, 22px);
     letter-spacing: -0.01em;
     color: var(--gb-forest);
@@ -656,7 +656,8 @@ body.gb-page {
 }
 
 .gb-learn__copy h3 {
-    font-family: 'Alice', serif;
+    font-family: 'Manrope', sans-serif;
+    font-weight: 600;
     font-size: 28px;
     color: var(--gb-forest);
     margin: 0 0 10px;
@@ -1023,7 +1024,8 @@ body.gb-page {
 }
 
 .gb-band__copy h2 {
-    font-family: 'Alice', serif;
+    font-family: 'Manrope', sans-serif;
+    font-weight: 600;
     font-size: clamp(26px, 3vw, 36px);
     margin: 0 0 10px;
     line-height: 1.18;
@@ -1224,16 +1226,33 @@ body.gb-page {
     gap: 14px;
 }
 
-/* Icons from Simple Icons (CC0): images/icons/*.svg */
+/* Icons from Simple Icons (CC0). Paths relative to this CSS file (repo root). */
 .gb-footer__social-link {
     display: block;
-    width: 20px;
-    height: 20px;
+    width: 22px;
+    height: 22px;
+    flex-shrink: 0;
     background-color: var(--gb-forest);
     -webkit-mask: var(--gb-social-icon) center / contain no-repeat;
     mask: var(--gb-social-icon) center / contain no-repeat;
     opacity: 0.85;
     transition: opacity 0.15s ease;
+}
+
+.gb-footer__social-link--instagram {
+    --gb-social-icon: url('images/icons/instagram.svg');
+}
+
+.gb-footer__social-link--facebook {
+    --gb-social-icon: url('images/icons/facebook.svg');
+}
+
+.gb-footer__social-link--tiktok {
+    --gb-social-icon: url('images/icons/tiktok.svg');
+}
+
+.gb-footer__social-link--linkedin {
+    --gb-social-icon: url('images/icons/linkedin.svg');
 }
 
 .gb-footer__social-link:hover {
@@ -1347,7 +1366,8 @@ body.gb-page {
 }
 
 .gb-modal__title {
-    font-family: 'Alice', serif;
+    font-family: 'Manrope', sans-serif;
+    font-weight: 600;
     font-size: clamp(28px, 3vw, 36px);
     color: var(--gb-forest);
     margin: 0 0 12px;
