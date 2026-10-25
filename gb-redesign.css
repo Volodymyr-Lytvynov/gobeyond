@@ -1637,6 +1637,51 @@ body.gb-modal-open {
     }
 }
 
+/* Desktop / laptop reading size — mobile stays as-is */
+@media (min-width: 1024px) {
+    .gb-lead,
+    .gb-hero__body {
+        font-size: 19px;
+        line-height: 1.7;
+    }
+
+    .gb-check li,
+    .gb-fit__item p,
+    .gb-learn__copy > p,
+    .gb-learn__aside li,
+    .gb-faq__answer,
+    .gb-faq summary {
+        font-size: 17px;
+        line-height: 1.55;
+    }
+
+    .gb-path__desc,
+    .gb-format__item p,
+    .gb-founder__bio,
+    .gb-founders__trust p,
+    .gb-clarity__card p,
+    .gb-accordion__teaser,
+    .gb-accordion__body,
+    .gb-accordion__body p,
+    .gb-accordion__body li {
+        font-size: 16px;
+        line-height: 1.6;
+    }
+
+    .gb-fit__item h3,
+    .gb-format__item h3 {
+        font-size: 18px;
+    }
+
+    .gb-btn {
+        font-size: 16px;
+    }
+
+    .gb-btn--sm {
+        font-size: 15px;
+    }
+}
+
 @media (prefers-reduced-motion: reduce) {
     .gb-hero__slide,
     .gb-btn,
