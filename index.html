@@ -1,12 +1,15 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Go Beyond: Retail Leaders Transition to Corporate Careers</title>
     <meta name="description" content="Learn a proven path from store leadership to corporate roles in operations, field leadership, and marketing. Practical, insider-led courses to land your next corporate job.">
     <meta name="keywords" content="retail to corporate, store manager career, corporate leadership, retail operations, field leadership, marketing careers">
     <meta name="author" content="Go Beyond">
     <meta name="facebook-domain-verification" content="jtak7x1gfqi9ui7gxc78dgeog4j3m2" />
-    <link rel="stylesheet" href="styles.css">
-    <link href="https://fonts.googleapis.com/css2?family=Alice:wght@400&amp;family=Lato:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="gb-redesign.css">
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&amp;family=Lato:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet">
     <!-- Google Tag Manager -->
     <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
     new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
@@ -14,7 +17,7 @@
     'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
     })(window,document,'script','dataLayer','GTM-5TK8GXRD');</script>
     <!-- End Google Tag Manager -->
-   <!-- Meta Pixel Code -->
+    <!-- Meta Pixel Code -->
     <script>
     !function(f,b,e,v,n,t,s)
     {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
@@ -30,567 +33,683 @@
     <noscript><img height="1" width="1" style="display:none"
     src="https://www.facebook.com/tr?id=4568659726790890&ev=PageView&noscript=1"
     /></noscript>
-    <!-- End Meta Pixel Code --> 
-    </head>
-    <body dir="ltr" spellcheck="false" style="direction: ltr; min-height: 901px;">
+    <!-- End Meta Pixel Code -->
+</head>
+<body class="gb-page">
     <!-- Google Tag Manager (noscript) -->
     <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5TK8GXRD"
     height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <!-- End Google Tag Manager (noscript) -->
+
     <!-- Header -->
-    <header class="header">
-        <div class="container">
-            <div class="nav-brand">
-                <h1 class="logo" style="display: flex;"><img src="images/noBgBlack.png" alt="Go Beyond" style="width: 200px; object-fit: contain;"></h1>
-            </div>
-            <nav class="nav-menu">
-                <a href="#courses" class="nav-link">Courses</a>
-                <a href="#why" class="nav-link">Why Go Beyond</a>
-                <a href="#pricing" class="nav-link">Pricing</a>
-                <a href="contact.html" class="nav-link">Contact</a>
-                <a href="https://sso.teachable.com/secure/2469444/identity/login/otp" class="btn-signin">Sign In</a>
+    <header class="gb-header">
+        <div class="gb-container gb-header__inner">
+            <a class="gb-header__logo" href="#top" aria-label="Go Beyond home">
+                <img src="images/noBgBlack.png" alt="Go Beyond">
+            </a>
+            <nav class="gb-header__nav" aria-label="Primary">
+                <a class="gb-header__link" href="#paths">Career Paths</a>
+                <a class="gb-header__link" href="#learn">What You&rsquo;ll Learn</a>
+                <a class="gb-header__link" href="#inside">Inside Go Beyond</a>
+                <a class="gb-header__link" href="#founders">Meet the Founders</a>
+                <a class="gb-header__link" href="#faq">FAQ</a>
             </nav>
-            <button class="hamburger" id="hamburger">
-                
-                
-                
+            <div class="gb-header__actions">
+                <a class="gb-btn gb-btn--outline gb-btn--sm gb-calendly-pending" href="https://calendly.com/discover-gobeyond/30min" target="_blank" rel="noopener noreferrer" data-gb-event="clarity_call_click">Book a Free Call</a>
+                <a class="gb-btn gb-btn--primary gb-btn--sm" href="#paths">Choose Your Path</a>
+            </div>
+            <button class="gb-header__toggle" type="button" data-gb-nav-toggle aria-expanded="false" aria-label="Open menu">
+                <span></span><span></span><span></span>
             </button>
         </div>
     </header>
 
-    <!-- Hero Section -->
-    <section class="hero">
-        <div class="container">
-            <div class="hero-content">
-                <div class="hero-text">
-                    <h1 class="hero-title">From Store Floor to <span class="highlight">Corporate</span> Leadership</h1>
-                    <p class="hero-subtitle">Go Beyond is your guide to stepping into corporate retail. Explore the worlds of operations, field leadership, and marketing, and discover what it takes to succeed in whichever path you choose. Your skills already make an impact in stores, now it’s time to make an impact at scale.</p>
-                    <div class="hero-buttons">
-                        <a href="#pricing" class="btn-primary">Start Your Transition
-                        </a><a href="#courses" class="btn-secondary">Browse Courses</a>
-                    </div>
-                    <p class="trust-badge">
-                        <span class="trust-icon">✓</span>
-                        Trusted by former retail leaders and hiring managers
-                    </p>
+    <!-- Hero: text in container, image full-bleed to viewport right -->
+    <section class="gb-hero" id="top" aria-labelledby="gb-hero-title">
+        <div class="gb-hero__inner">
+            <div class="gb-hero__text">
+                <p class="gb-hero__eyebrow">Your experience can take you further</p>
+                <h1 id="gb-hero-title" class="gb-hero__title">Your retail experience can take you beyond the store.</h1>
+                <p class="gb-hero__body">You already understand customers, teams, performance and what it takes to make a business work on the ground. Go Beyond helps you understand where that experience can take you next &mdash; across Marketing, Retail Operations and Field Leadership &mdash; and how to position yourself for the move.</p>
+                <div class="gb-hero__ctas">
+                    <a href="#paths" class="gb-btn gb-btn--primary" data-gb-event="hero_explore_paths_click">Explore Career Paths <span aria-hidden="true">&rarr;</span></a>
+                    <a href="#learn" class="gb-btn gb-btn--outline" data-gb-event="hero_see_learning_click">See What You&rsquo;ll Learn</a>
                 </div>
-                <div class="hero-images">
-                    <div class="image-grid">
-                        <div class="marquee-row rtl">
-                            <div class="marquee-track">
-                                <div class="marquee-item">
-                                    <img src="images/hero_1.png" alt="Corporate Field Leadership">
-                                </div>
-                                <div class="marquee-item">
-                                    <img src="images/hero_2.png" alt="Retail Operations">
-                                </div>
-                                <div class="marquee-item">
-                                    <img src="images/hero_3.png" alt="Marketing">
-                                </div>
-                                <div class="marquee-item">
-                                    <img src="images/hero_4.png" alt="Foundation of success">
-                                </div>
-                                <!-- duplicate for seamless loop -->
-                                <div class="marquee-item" aria-hidden="true">
-                                    <img src="images/hero_1.png" alt="">
-                                </div>
-                                <div class="marquee-item" aria-hidden="true">
-                                    <img src="images/hero_2.png" alt="">
-                                </div>
-                                <div class="marquee-item" aria-hidden="true">
-                                    <img src="images/hero_3.png" alt="">
-                                </div>
-                                <div class="marquee-item" aria-hidden="true">
-                                    <img src="images/hero_4.png" alt="">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="marquee-row ltr">
-                            <div class="marquee-track">
-                                <div class="marquee-item">
-                                    <img src="images/hero_5.png" alt="Foundation of success">
-                                </div>
-                                <div class="marquee-item">
-                                    <img src="images/hero_6.png" alt="Marketing">
-                                </div>
-                                <div class="marquee-item">
-                                    <img src="images/hero_7.png" alt="Retail Operations">
-                                </div>
-                                <div class="marquee-item">
-                                    <img src="images/hero_8.png" alt="Corporate Field Leadership">
-                                </div>
-                                <!-- duplicate for seamless loop -->
-                                <div class="marquee-item" aria-hidden="true">
-                                    <img src="images/hero_5.png" alt="">
-                                </div>
-                                <div class="marquee-item" aria-hidden="true">
-                                    <img src="images/hero_6.png" alt="">
-                                </div>
-                                <div class="marquee-item" aria-hidden="true">
-                                    <img src="images/hero_7.png" alt="">
-                                </div>
-                                <div class="marquee-item" aria-hidden="true">
-                                    <img src="images/hero_8.png" alt="">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                <ul class="gb-hero__trust">
+                    <li>
+                        <svg class="gb-hero__trust-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4.4 3.6-8 8-8s8 3.6 8 8"/></svg>
+                        <span>Built for retail leaders</span>
+                    </li>
+                    <li>
+                        <svg class="gb-hero__trust-icon" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="4" width="18" height="14" rx="2"/><path d="M8 22h8M12 18v4"/></svg>
+                        <span>Practical, self-paced learning</span>
+                    </li>
+                    <li>
+                        <svg class="gb-hero__trust-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="9" cy="8" r="3.5"/><circle cx="17" cy="9" r="2.5"/><path d="M2 20c0-3.9 3.1-7 7-7s7 3.1 7 7M16 13.5c3.2 0 6 2.4 6 6"/></svg>
+                        <span>Created by people who made the move</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="gb-hero__media" data-hero-crossfade data-interval="4500">
+            <img class="gb-hero__slide is-active" src="images/hero_1.jpg" alt="Retail professional in a city setting" fetchpriority="high">
+            <img class="gb-hero__slide" src="images/hero_2.jpg" alt="Retail leader in a business setting" decoding="async">
+            <img class="gb-hero__slide" src="images/hero_3.jpg" alt="Group of retail professionals working together" decoding="async">
+        </div>
+    </section>
+
+    <!-- Audience fit -->
+    <section class="gb-section gb-section--white" id="audience" aria-labelledby="audience-title">
+        <div class="gb-container">
+            <div class="gb-section__header">
+                <h2 class="gb-title" id="audience-title">Wondering what comes next after the store?</h2>
+                <p class="gb-lead">Go Beyond was created for store-level retail leaders who know they&rsquo;re ready to grow &mdash; even if they&rsquo;re not yet sure what that next move looks like.</p>
+            </div>
+            <div class="gb-fit__grid">
+                <article class="gb-fit__item">
+                    <svg class="gb-icon gb-icon--lg" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 21h18"/><path d="M5 21V10l7-5 7 5v11"/><path d="M9 21v-6h6v6"/></svg>
+                    <h3>You&rsquo;re leading a store today</h3>
+                    <p>You&rsquo;re a Store Manager, ASM or experienced retail leader wondering what could come next.</p>
+                </article>
+                <article class="gb-fit__item">
+                    <svg class="gb-icon gb-icon--lg" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 19V5"/><path d="M5 12l7-7 7 7"/></svg>
+                    <h3>You know you want to grow</h3>
+                    <p>You&rsquo;re ready for more, but you aren&rsquo;t sure which direction fits your strengths.</p>
+                </article>
+                <article class="gb-fit__item">
+                    <svg class="gb-icon gb-icon--lg" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 8v4l3 2"/></svg>
+                    <h3>The opportunities beyond the store feel unfamiliar</h3>
+                    <p>You want to understand what Marketing, Retail Operations and Field Leadership actually do.</p>
+                </article>
+                <article class="gb-fit__item">
+                    <svg class="gb-icon gb-icon--lg" viewBox="0 0 24 24" aria-hidden="true"><path d="M21 15a4 4 0 01-4 4H8l-5 3V7a4 4 0 014-4h10a4 4 0 014 4z"/></svg>
+                    <h3>You struggle to position your experience</h3>
+                    <p>You know you have valuable experience &mdash; you&rsquo;re just not sure how to communicate it for your next opportunity.</p>
+                </article>
             </div>
         </div>
     </section>
 
-    <!-- The Gap We Bridge Section -->
-    <section class="gap-section">
-        <div class="container">
-            <h2 class="section-title">The Gap We Bridge</h2>
-            <h3 class="gap-subheading">The experience you’ve built on the sales floor is your foundation - discover what it takes to thrive in retail corporate.</h3>
-            <p class="section-text">You’ve spent your time in stores learning the foundation of retail success. Go Beyond is your guide to understanding the skills and expectations in operations, field leadership, and marketing. Everything you’ve already mastered on the sales floor is transferable. The key is knowing how to apply it to succeed in corporate retail.</p>
-            <a href="#how" class="btn-coral">Learn how it works</a>
-        </div>
-    </section>
-
-    <!-- Who Goes Beyond Section -->
-    <section class="who-section">
-        <div class="container">
-            <h2 class="section-title">Who Goes Beyond?</h2>
-            <div class="cards-grid">
-                <div class="card">
-                    <div class="card-icon store-managers">
-                        <img src="images/RETAIL HEROES.png" alt="Store Managers">
-                    </div>
-                    <h3 class="card-title">Retail Heroes</h3>
-                    <p class="card-description">From sales associates to multi-store managers, you’ve mastered retail on the ground. Go Beyond helps you turn that experience into corporate success in operations, field leadership, or marketing.</p>
-                </div>
-                <div class="card">
-                    <div class="card-icon multi-unit">
-                        <img src="images/RISING STARS.png" alt="Multi-Unit Leaders">
-                    </div>
-                    <h3 class="card-title">Rising Stars</h3>
-                    <p class="card-description"> You’re passionate about retail and ready to grow. Go Beyond shows you how to break into corporate roles and turn your drive into impact at scale.</p>
-                </div>
-                <div class="card">
-                    <div class="card-icon retail-leaders">
-                        <img src="images/BOLD VISIONARIES.png" alt="Retail leaders">
-                    </div>
-                    <h3 class="card-title">Bold Visionaries
-                    </h3>
-                    <p class="card-description">Coming from another industry or a non-retail corporate role? Go Beyond helps you translate your skills into retail operations, leadership, or marketing — with a roadmap to thrive.</p>
-                </div>
-                <!-- <div class="card">
-                    <div class="card-icon ambitious">
-                        <img src="images/who_4.svg" alt="Ambitious professionals">
-                    </div>
-                    <h3 class="card-title">Ambitious professionals</h3>
-                    <p class="card-description">Translating store experience into corporate impact</p>
-                </div> -->
+    <!-- Choose your path -->
+    <section class="gb-section gb-section--cream" id="paths" aria-labelledby="paths-title">
+        <div class="gb-container">
+            <div class="gb-section__header">
+                <h2 class="gb-title" id="paths-title">Choose the path that&rsquo;s right for you.</h2>
+                <p class="gb-lead">Already know where you want to go? Choose one focused path.</p>
+                <p class="gb-lead">Still exploring? Get the full Go Beyond experience.</p>
             </div>
-        </div>
-    </section>
-
-    <!-- How It Works Section -->
-    <section id="how" class="how-section">
-        <div class="container">
-            <h2 class="section-title">How Go Beyond Works</h2>
-            <div class="cards-grid">
-                <div class="card">
-                    <div class="card-icon choose-path">
-                        <img src="images/MASTER THE FOUNDATION.png" alt="Choose Your Path">
+            <div class="gb-paths__grid">
+                <article class="gb-path">
+                    <div class="gb-path__media">
+                        <img src="images/marketing.png" alt="Marketing path">
                     </div>
-                    <h3 class="card-title">Master the Foundation</h3>
-                    <p class="card-description">Your journey starts with the Foundation of Success, where you’ll explore the essential skills that make retail heroes stand out. From communication to problem-solving, you’ll build the confidence and mindset to thrive in any corporate retail role. This module sets the stage for understanding how operations, marketing, and field leadership function together—and what hiring managers are really looking for.</p>
-                </div>
-                <div class="card">
-                    <div class="card-icon build-skills">
-                        <img src="images/DIVE INTO KEY RETAIL FUNCTIONS.png" alt="Build Targeted Skills">
-                    </div>
-                    <h3 class="card-title">Dive into Key Retail Functions</h3>
-                    <p class="card-description">Go Beyond goes beyond theory. In the Operations, Marketing, and Field Leadership modules, you’ll get an insider’s look at how these departments operate at a corporate level. Learn the practical strategies, processes, and skills that separate strong candidates from the rest. By the end, you’ll see how your store experience translates directly into impact at scale.</p>
-                </div>
-                <div class="card">
-                    <div class="card-icon make-move">
-                        <img src="images/POSITION YOURSELF TO WIN.png" alt="Make Your Move">
-                    </div>
-                    <h3 class="card-title">Position Yourself to Win</h3>
-                    <p class="card-description">The final module focuses on career readiness, showing you how to make your resume and LinkedIn profile irresistible. Learn networking strategies, interview tips, and best practices that highlight your achievements. You’ll leave with the tools and confidence to step into corporate roles and make your mark.</p>
-                </div>
-            </div>
-            <div class="how-cta">
-                <a href="#courses" class="btn-coral">Explore the Course</a>
-            </div>
-        </div>
-    </section>
-
-    <!-- Course Tracks Section -->
-    <section id="courses" class="courses-section">
-        <div class="container">
-            <h2 class="section-title">Course sneak peek</h2>
-            <div class="courses-grid">
-                <div class="course-card" data-course="foundation" data-url="https://school.joingobeyond.com/l/bundle/722970/gobeyond-course">
-                    <div class="course-image">
-                        <img src="images/corporate_success.png" alt="Foundation of success">
-                    </div>
-                    <h3 class="course-title">Foundation of success</h3>
-                    <p class="course-description">Build the core skills needed for corporate leadership</p>
-                    <a class="btn-course" href="https://school.joingobeyond.com/l/bundle/722970/gobeyond-course" role="button">Learn More</a>
-                </div>
-                <div class="course-card" data-course="marketing" data-url="https://school.joingobeyond.com/l/bundle/722970/gobeyond-course">
-                    <div class="course-image">
-                        <img src="images/marketing.png" alt="Marketing">
-                    </div>
-                    <h3 class="course-title">Marketing</h3>
-                    <p class="course-description">Use customer insights to shape product strategy</p>
-                    <a class="btn-course" href="https://school.joingobeyond.com/l/bundle/722970/gobeyond-course" role="button">Learn More</a>
-                </div>
-                <div class="course-card" data-course="retail-operations" data-url="https://school.joingobeyond.com/l/bundle/722970/gobeyond-course">
-                    <div class="course-image">
-                        <img src="images/store_opertations.png" alt="Retail Operations">
-                    </div>
-                    <h3 class="course-title">Retail Operations</h3>
-                    <p class="course-description">Master processes, reporting, and cross-functional collaboration</p>
-                    <a class="btn-course" href="https://school.joingobeyond.com/l/bundle/722970/gobeyond-course" role="button">Learn More</a>
-                </div>
-                <div class="course-card" data-course="corporate-leadership" data-url="https://school.joingobeyond.com/l/bundle/722970/gobeyond-course">
-                    <div class="course-image">
-                        <img src="images/field_leadership.png" alt="Field Leadership">
-                    </div>
-                    <h3 class="course-title">Corporate Field Leadership</h3>
-                    <p class="course-description">From Store Manager to District/Regional Manager</p>
-                    <a class="btn-course" href="https://school.joingobeyond.com/l/bundle/722970/gobeyond-course" role="button">Learn More</a>
-                </div>
-             
-              
-              
-                <div class="course-card" data-course="land-job" data-url="https://school.joingobeyond.com/l/bundle/722970/gobeyond-course">
-                    <div class="course-image">
-                        <img src="images/job.png" alt="Land the job">
-                    </div>
-                    <h3 class="course-title">Tools for a Strong Job Search</h3>
-                    <p class="course-description">Master the interview process and negotiation skills</p>
-                    <a class="btn-course" href="https://school.joingobeyond.com/l/bundle/722970/gobeyond-course" role="button">Learn More</a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Why Go Beyond Section -->
-    <section id="why" class="why-section">
-        <div class="container">
-            <h2 class="section-title">From the Ground Up — Our Journey</h2>
-            <div class="founder-testimonials">
-                <div class="founder-testimonial">
-                    <div class="founder-image ita">
-                        <img src="images/ita.jpeg" alt="Ita">
-                    </div>
-                    <div class="founder-content">
-                        <div class="quote-icon">"</div>
-                        <h3 class="founder-name">Hi! I’m Ita</h3>
-                        <p class="founder-quote">I've spent most of my career in retail, driving sales, coaching teams, and building strategies that helped businesses grow. But some of my most meaningful lessons didn't come from meetings or strategy decks, they came from the time I spent in stores. Being on the sales floor gave me a firsthand look at what really drives retail: the people leading teams, serving customers, and keeping the brand alive day after day.</p>
-                        <p class="founder-quote">That's why I co-founded Go Beyond. I believe store leaders are the heartbeat of retail. They know the customer best, motivate their teams, and turn strategy into real results.</p>
-                        <p class="founder-quote">Go Beyond is designed to give store leaders a clear roadmap to take their experience, translate it, and step into corporate roles with confidence. It's about helping your skills shine, your voice be heard, and your impact grow beyond the store.</p>
-                    </div>
-                </div>
-                <div class="founder-testimonial">
-                    <div class="founder-content">
-                        <div class="quote-icon">"</div>
-                        <h3 class="founder-name">Hi! I’m Masha</h3>
-                        <p class="founder-quote">When I moved to the U.S. from Ukraine, I brought a Master's in Business Management, a Bachelor's in Law, and years of experience running my own business. But what I didn't bring was a corporate job waiting for me. My first role here? A part-time sales advisor.</p>
-                        <p class="founder-quote">That role turned out to be the best launchpad I could have asked for. The sales floor became my classroom, where I learned how to lead teams, optimize store operations, and create strategies that grow both people and profits. Step by step, I went from sales floor to multi-unit leadership, flagship store launches, and business development projects that elevated brands to new levels.</p>
-                        <p class="founder-quote">Here's the truth: the skills you're building on the floor — managing teams, solving problems, driving results — are exactly the skills corporate leaders need. They just need the right translation. That's why I co-founded Go|Beyond: to help retail leaders like you take the next step confidently, translate your experience into corporate impact, and accelerate your career.</p>
-                        <p class="founder-quote">If I could turn a part-time sales role into a career building retail businesses, so can you — and Go|Beyond is here to show you how.</p>
-                    </div>
-                    <div class="founder-image masha">
-                        <img src="images/masha.jpeg" alt="Masha">
-                    </div>
-                </div>
-            </div>
-            <div class="trust-bullets">
-                <div class="why-benefits">
-                    <h3 class="why-benefits-title">Why Go Beyond</h3>
-                    <p class="why-benefits-text">Because staying comfortable won’t change your future. The moment you invest in yourself, you raise the bar — you commit to doing the work, applying new skills, and showing up with intention. This course is your spark, but the hustle is yours. And here’s the kind of future you’ll be building toward:</p>
-                    <div class="why-benefits-grid">
-                        <ul class="benefit-bullets">
-                            <li>
-                                <span class="bullet-icon">✓</span>
-                                <p>Boost Your Earning Power – Corporate retail roles often bring $20k–$50k+ salary jumps compared to the store floor.</p>
-                            </li>
-                            <li>
-                                <span class="bullet-icon">✓</span>
-                                <p>Win Back Your Weekends – Step into positions with predictable schedules and more time for family, travel, and yourself.</p>
-                            </li>
-                            <li>
-                                <span class="bullet-icon">✓</span>
-                                <p>Play on a Bigger Stage – Expand your impact from one store to shaping strategies across hundreds of locations.</p>
-                            </li>
-                            <li>
-                                <span class="bullet-icon">✓</span>
-                                <p>Access New Networks – A corporate role unlocks higher-level connections with leaders, mentors, and decision-makers that elevate your career.</p>
-                            </li>
-                            <li>
-                                <span class="bullet-icon">✓</span>
-                                <p>Future-Proof Your Career – Gain versatile skills in operations, marketing, and leadership that keep you competitive for the long run.</p>
-                            </li>
-                        </ul>
-                        <div class="benefits-image">
-                            <img src="images/mockup.png" alt="Corporate success trajectory">
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Pricing Section -->
-    <section id="pricing" class="pricing-section">
-        <div class="container">
-            <header class="pricing-header">
-                <h2 class="section-title">Choose the way that's right for you.</h2>
-                <p class="final-subtitle">Explore everything with the full program, or build your own path with a focused track.</p>
-                <hr class="pricing-divider">
-            </header>
-
-            <!-- Option 1: Individual Tracks -->
-            <div class="pricing-option pricing-option--tracks">
-                <span class="pricing-option-badge pricing-option-badge--center">OPTION 1</span>
-                <h3 class="pricing-title pricing-title--lg pricing-title--center">Choose Your Career Path</h3>
-                <p class="pricing-label pricing-label--center">BUILD YOUR OWN PATH FOR $150</p>
-                <p class="pricing-option-desc">For professionals who already know which area they want to develop.</p>
-
-                <div class="pricing-tracks-grid">
-                    <article class="pricing-track-card">
-                        <div class="pricing-track-icon" aria-hidden="true">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11l18-5v12L3 14v-3z"/><path d="M11.6 16.8a3 3 0 11-5.8-1.6"/></svg>
-                        </div>
-                        <h4 class="pricing-title">Marketing</h4>
-                        <p class="pricing-track-desc">Learn how to use customer insights, brand strategy, and campaign planning to shape product decisions and drive growth in corporate retail.</p>
-                        <p class="pricing-includes-label">Includes:</p>
-                        <ul class="pricing-features">
+                    <div class="gb-path__body">
+                        <h3 class="gb-path__title">Marketing</h3>
+                        <div class="gb-path__price">$150</div>
+                        <p class="gb-path__desc">For retail leaders interested in customers, brand strategy, campaigns and business growth.</p>
+                        <ul class="gb-check">
                             <li>Foundation of Success</li>
                             <li>Marketing</li>
                             <li>Tools for a Strong Job Search</li>
                         </ul>
-                        <div class="pricing-price">$150</div>
-                        <a href="https://gobeyond-s-school.teachable.com/purchase?product_id=6814656" class="btn-primary pricing-btn">Choose Marketing</a>
-                    </article>
+                        <button type="button" class="gb-btn gb-btn--primary gb-btn--block" data-gb-explore="marketing" data-gb-event="path_explore_click" data-path="marketing">Explore Marketing <span aria-hidden="true">&rarr;</span></button>
+                    </div>
+                </article>
 
-                    <article class="pricing-track-card">
-                        <div class="pricing-track-icon" aria-hidden="true">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M16 4h2a2 2 0 012 2v14a2 2 0 01-2 2H6a2 2 0 01-2-2V6a2 2 0 012-2h2"/><rect x="8" y="2" width="8" height="4" rx="1"/><path d="M9 14h6M9 18h4"/></svg>
-                        </div>
-                        <h4 class="pricing-title">Retail Operations</h4>
-                        <p class="pricing-track-desc">Master the processes, reporting, and cross-functional collaboration that keep retail businesses running smoothly at scale.</p>
-                        <p class="pricing-includes-label">Includes:</p>
-                        <ul class="pricing-features">
+                <article class="gb-path">
+                    <div class="gb-path__media">
+                        <img src="images/store_opertations.png" alt="Retail Operations path">
+                    </div>
+                    <div class="gb-path__body">
+                        <h3 class="gb-path__title">Retail Operations</h3>
+                        <div class="gb-path__price">$150</div>
+                        <p class="gb-path__desc">For people who naturally see opportunities to improve processes, performance and how the business runs.</p>
+                        <ul class="gb-check">
                             <li>Foundation of Success</li>
                             <li>Retail Operations</li>
                             <li>Tools for a Strong Job Search</li>
                         </ul>
-                        <div class="pricing-price">$150</div>
-                        <a href="https://gobeyond-s-school.teachable.com/purchase?product_id=6814657" class="btn-primary pricing-btn">Choose Retail Operations</a>
-                    </article>
+                        <button type="button" class="gb-btn gb-btn--primary gb-btn--block" data-gb-explore="operations" data-gb-event="path_explore_click" data-path="operations">Explore Retail Operations <span aria-hidden="true">&rarr;</span></button>
+                    </div>
+                </article>
 
-                    <article class="pricing-track-card">
-                        <div class="pricing-track-icon" aria-hidden="true">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg>
-                        </div>
-                        <h4 class="pricing-title">Field Leadership</h4>
-                        <p class="pricing-track-desc">Develop the leadership skills to manage teams, drive performance, and translate store-level experience into district and regional impact.</p>
-                        <p class="pricing-includes-label">Includes:</p>
-                        <ul class="pricing-features">
+                <article class="gb-path">
+                    <div class="gb-path__media">
+                        <img src="images/field_leadership.png" alt="Field Leadership path">
+                    </div>
+                    <div class="gb-path__body">
+                        <h3 class="gb-path__title">Field Leadership</h3>
+                        <div class="gb-path__price">$150</div>
+                        <p class="gb-path__desc">For leaders ready to expand their impact beyond a single store.</p>
+                        <ul class="gb-check">
                             <li>Foundation of Success</li>
                             <li>Field Leadership</li>
                             <li>Tools for a Strong Job Search</li>
                         </ul>
-                        <div class="pricing-price">$150</div>
-                        <a href="https://gobeyond-s-school.teachable.com/purchase?product_id=6814659" class="btn-primary pricing-btn">Choose Field Leadership</a>
+                        <button type="button" class="gb-btn gb-btn--primary gb-btn--block" data-gb-explore="field" data-gb-event="path_explore_click" data-path="field">Explore Field Leadership <span aria-hidden="true">&rarr;</span></button>
+                    </div>
+                </article>
+
+                <article class="gb-path">
+                    <span class="gb-path__badge">Best Value</span>
+                    <div class="gb-path__media">
+                        <img src="images/corporate_success.png" alt="Full Go Beyond Program">
+                    </div>
+                    <div class="gb-path__body">
+                        <h3 class="gb-path__title">Full Go Beyond Program</h3>
+                        <div class="gb-path__price">$350</div>
+                        <p class="gb-path__desc">Want to explore all three directions? Get all five modules and understand Marketing, Retail Operations and Field Leadership before deciding where you want to focus.</p>
+                        <ul class="gb-check">
+                            <li>All five modules</li>
+                            <li>All three specializations</li>
+                            <li>Complete career exploration</li>
+                        </ul>
+                        <button type="button" class="gb-btn gb-btn--primary gb-btn--block" data-gb-explore="full" data-gb-event="path_explore_click" data-path="full">Explore Everything <span aria-hidden="true">&rarr;</span></button>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- What you'll actually learn -->
+    <section class="gb-section gb-section--white" id="learn" aria-labelledby="learn-title">
+        <div class="gb-container">
+            <div class="gb-section__header">
+                <h2 class="gb-title" id="learn-title">What you&rsquo;ll actually learn.</h2>
+                <p class="gb-lead">Real-world knowledge. Practical tools. A clearer path forward.</p>
+            </div>
+
+            <div data-gb-tabs>
+                <div class="gb-learn__tabs" role="tablist" aria-label="Career paths">
+                    <button class="gb-learn__tab" role="tab" id="tab-marketing" aria-controls="panel-marketing" aria-selected="true" data-path="marketing">Marketing</button>
+                    <button class="gb-learn__tab" role="tab" id="tab-operations" aria-controls="panel-operations" aria-selected="false" tabindex="-1" data-path="operations">Retail Operations</button>
+                    <button class="gb-learn__tab" role="tab" id="tab-field" aria-controls="panel-field" aria-selected="false" tabindex="-1" data-path="field">Field Leadership</button>
+                </div>
+
+                <div class="gb-learn__panels">
+                <div class="gb-learn__panel is-active" role="tabpanel" id="panel-marketing" aria-labelledby="tab-marketing">
+                    <div class="gb-learn__layout">
+                        <div class="gb-learn__image">
+                            <img src="images/marketing.png" alt="Marketing learning path">
+                        </div>
+                        <div class="gb-learn__copy">
+                            <h3>Marketing</h3>
+                            <p>Understand how retail marketing works beyond the store.</p>
+                            <h4>You&rsquo;ll learn how to:</h4>
+                            <ul class="gb-check">
+                                <li>Understand customer personas and target audiences</li>
+                                <li>Connect customer insights to marketing decisions</li>
+                                <li>Understand brand positioning and customer experience</li>
+                                <li>See how marketing funnels and campaigns are structured</li>
+                                <li>Read common marketing KPIs and performance measures</li>
+                                <li>Understand how stores, e-commerce and corporate marketing connect</li>
+                            </ul>
+                        </div>
+                        <aside class="gb-learn__aside">
+                            <h4>You&rsquo;ll leave understanding:</h4>
+                            <ul>
+                                <li>What Marketing teams actually do</li>
+                                <li>How your retail experience connects to that work</li>
+                                <li>Which skills you may still need to build</li>
+                                <li>How to position yourself for relevant opportunities</li>
+                            </ul>
+                            <button type="button" class="gb-btn gb-btn--primary gb-btn--block" data-gb-explore="marketing" data-gb-event="path_explore_click" data-path="marketing">Explore the Marketing Path</button>
+                        </aside>
+                    </div>
+                </div>
+
+                <div class="gb-learn__panel" role="tabpanel" id="panel-operations" aria-labelledby="tab-operations" hidden>
+                    <div class="gb-learn__layout">
+                        <div class="gb-learn__image">
+                            <img src="images/store_opertations.png" alt="Retail Operations learning path">
+                        </div>
+                        <div class="gb-learn__copy">
+                            <h3>Retail Operations</h3>
+                            <p>See what happens behind the scenes of a retail business at scale.</p>
+                            <h4>You&rsquo;ll learn how to:</h4>
+                            <ul class="gb-check">
+                                <li>Think about processes beyond a single location</li>
+                                <li>Understand operational reporting and performance</li>
+                                <li>Identify problems and opportunities using business data</li>
+                                <li>Understand cross-functional collaboration</li>
+                                <li>See how operational decisions affect stores and customers</li>
+                                <li>Connect store-level problem solving to broader business operations</li>
+                            </ul>
+                        </div>
+                        <aside class="gb-learn__aside">
+                            <h4>You&rsquo;ll leave understanding:</h4>
+                            <ul>
+                                <li>What Retail Operations teams own</li>
+                                <li>How operational thinking changes at scale</li>
+                                <li>Which of your store skills transfer</li>
+                                <li>How to speak about that experience more strategically</li>
+                            </ul>
+                            <button type="button" class="gb-btn gb-btn--primary gb-btn--block" data-gb-explore="operations" data-gb-event="path_explore_click" data-path="operations">Explore the Retail Operations Path</button>
+                        </aside>
+                    </div>
+                </div>
+
+                <div class="gb-learn__panel" role="tabpanel" id="panel-field" aria-labelledby="tab-field" hidden>
+                    <div class="gb-learn__layout">
+                        <div class="gb-learn__image">
+                            <img src="images/field_leadership.png" alt="Field Leadership learning path">
+                        </div>
+                        <div class="gb-learn__copy">
+                            <h3>Field Leadership</h3>
+                            <p>Learn what changes when your impact expands beyond one store.</p>
+                            <h4>You&rsquo;ll learn how to:</h4>
+                            <ul class="gb-check">
+                                <li>Think beyond the performance of one store</li>
+                                <li>Coach and influence multiple leaders</li>
+                                <li>Evaluate performance across locations</li>
+                                <li>Balance people, execution and business priorities</li>
+                                <li>Communicate expectations and drive accountability</li>
+                                <li>Understand the shift from direct management to broader leadership</li>
+                            </ul>
+                        </div>
+                        <aside class="gb-learn__aside">
+                            <h4>You&rsquo;ll leave understanding:</h4>
+                            <ul>
+                                <li>What Field Leaders actually do</li>
+                                <li>How the role differs from Store Management</li>
+                                <li>Which leadership skills already transfer</li>
+                                <li>What you need to demonstrate for the next level</li>
+                            </ul>
+                            <button type="button" class="gb-btn gb-btn--primary gb-btn--block" data-gb-explore="field" data-gb-event="path_explore_click" data-path="field">Explore the Field Leadership Path</button>
+                        </aside>
+                    </div>
+                </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- See what's inside -->
+    <section class="gb-section gb-section--cream" id="inside" aria-labelledby="inside-title">
+        <div class="gb-container">
+            <div class="gb-section__header gb-section__header--left">
+                <h2 class="gb-title" id="inside-title">See what&rsquo;s inside.</h2>
+                <p class="gb-lead">Every path comes with Foundation of Success and Tools for a Strong Job Search &mdash; plus the specialization you choose. Want to explore everything? The Full Program includes all five modules.</p>
+            </div>
+            <div class="gb-inside__grid">
+                <div class="gb-accordion" data-gb-curriculum>
+                    <details>
+                        <summary>
+                            <div>
+                                <div class="gb-accordion__num">01</div>
+                                <h3 class="gb-accordion__title">Foundation of Success</h3>
+                                <p class="gb-accordion__teaser">How to recognize, translate and communicate the experience you already have.</p>
+                            </div>
+                            <span class="gb-accordion__plus" aria-hidden="true">+</span>
+                        </summary>
+                        <div class="gb-accordion__body">
+                            <p>Establish the fundamental skills and mindset required for corporate leadership success &mdash; communication, strategic thinking and how to translate store experience into broader impact.</p>
+                            <h4 class="gb-accordion__label">You&rsquo;ll learn how to</h4>
+                            <ul class="gb-check">
+                                <li>Leadership principles and emotional intelligence</li>
+                                <li>Effective communication and presentation skills</li>
+                                <li>Strategic thinking and problem-solving</li>
+                                <li>Time management and productivity</li>
+                                <li>Professional networking and relationship building</li>
+                                <li>Career planning and goal setting</li>
+                            </ul>
+                            <p class="gb-accordion__meta">26 lessons across 5 chapters</p>
+                        </div>
+                    </details>
+                    <details>
+                        <summary>
+                            <div>
+                                <div class="gb-accordion__num">02</div>
+                                <h3 class="gb-accordion__title">Marketing</h3>
+                                <p class="gb-accordion__teaser">Customers, positioning, campaigns, performance and brand strategy.</p>
+                            </div>
+                            <span class="gb-accordion__plus" aria-hidden="true">+</span>
+                        </summary>
+                        <div class="gb-accordion__body">
+                            <p>Understand how retail marketing works beyond the store.</p>
+                            <h4 class="gb-accordion__label">You&rsquo;ll learn how to</h4>
+                            <ul class="gb-check">
+                                <li>Understand customer personas and target audiences</li>
+                                <li>Connect customer insights to marketing decisions</li>
+                                <li>Understand brand positioning and customer experience</li>
+                                <li>See how marketing funnels and campaigns are structured</li>
+                                <li>Read common marketing KPIs and performance measures</li>
+                                <li>Understand how stores, e-commerce and corporate marketing connect</li>
+                            </ul>
+                            <h4 class="gb-accordion__label">You&rsquo;ll leave understanding</h4>
+                            <ul>
+                                <li>What Marketing teams actually do</li>
+                                <li>How your retail experience connects to that work</li>
+                                <li>Which skills you may still need to build</li>
+                                <li>How to position yourself for relevant opportunities</li>
+                            </ul>
+                            <p class="gb-accordion__meta">63 lessons across 10 chapters</p>
+                        </div>
+                    </details>
+                    <details>
+                        <summary>
+                            <div>
+                                <div class="gb-accordion__num">03</div>
+                                <h3 class="gb-accordion__title">Retail Operations</h3>
+                                <p class="gb-accordion__teaser">Processes, reporting, performance, business data and cross-functional execution.</p>
+                            </div>
+                            <span class="gb-accordion__plus" aria-hidden="true">+</span>
+                        </summary>
+                        <div class="gb-accordion__body">
+                            <p>See what happens behind the scenes of a retail business at scale.</p>
+                            <h4 class="gb-accordion__label">You&rsquo;ll learn how to</h4>
+                            <ul class="gb-check">
+                                <li>Think about processes beyond a single location</li>
+                                <li>Understand operational reporting and performance</li>
+                                <li>Identify problems and opportunities using business data</li>
+                                <li>Understand cross-functional collaboration</li>
+                                <li>See how operational decisions affect stores and customers</li>
+                                <li>Connect store-level problem solving to broader business operations</li>
+                            </ul>
+                            <h4 class="gb-accordion__label">You&rsquo;ll leave understanding</h4>
+                            <ul>
+                                <li>What Retail Operations teams own</li>
+                                <li>How operational thinking changes at scale</li>
+                                <li>Which of your store skills transfer</li>
+                                <li>How to speak about that experience more strategically</li>
+                            </ul>
+                            <p class="gb-accordion__meta">52 lessons across 10 chapters</p>
+                        </div>
+                    </details>
+                    <details>
+                        <summary>
+                            <div>
+                                <div class="gb-accordion__num">04</div>
+                                <h3 class="gb-accordion__title">Field Leadership</h3>
+                                <p class="gb-accordion__teaser">Multi-unit leadership, coaching, performance and leading through other leaders.</p>
+                            </div>
+                            <span class="gb-accordion__plus" aria-hidden="true">+</span>
+                        </summary>
+                        <div class="gb-accordion__body">
+                            <p>Learn what changes when your impact expands beyond one store.</p>
+                            <h4 class="gb-accordion__label">You&rsquo;ll learn how to</h4>
+                            <ul class="gb-check">
+                                <li>Think beyond the performance of one store</li>
+                                <li>Coach and influence multiple leaders</li>
+                                <li>Evaluate performance across locations</li>
+                                <li>Balance people, execution and business priorities</li>
+                                <li>Communicate expectations and drive accountability</li>
+                                <li>Understand the shift from direct management to broader leadership</li>
+                            </ul>
+                            <h4 class="gb-accordion__label">You&rsquo;ll leave understanding</h4>
+                            <ul>
+                                <li>What Field Leaders actually do</li>
+                                <li>How the role differs from Store Management</li>
+                                <li>Which leadership skills already transfer</li>
+                                <li>What you need to demonstrate for the next level</li>
+                            </ul>
+                            <p class="gb-accordion__meta">50 lessons across 10 chapters</p>
+                        </div>
+                    </details>
+                    <details>
+                        <summary>
+                            <div>
+                                <div class="gb-accordion__num">05</div>
+                                <h3 class="gb-accordion__title">Tools for a Strong Job Search</h3>
+                                <p class="gb-accordion__teaser">Resume, LinkedIn, networking, interviews and negotiation.</p>
+                            </div>
+                            <span class="gb-accordion__plus" aria-hidden="true">+</span>
+                        </summary>
+                        <div class="gb-accordion__body">
+                            <p>Practical tools to strengthen your job search &mdash; resume, LinkedIn, networking, interviews and staying organized throughout the process.</p>
+                            <h4 class="gb-accordion__label">You&rsquo;ll learn how to</h4>
+                            <ul class="gb-check">
+                                <li>Create a clear and effective resume</li>
+                                <li>Optimize your LinkedIn profile</li>
+                                <li>Build and grow your network</li>
+                                <li>Prepare for interviews with confidence</li>
+                                <li>Stay organized during your job search</li>
+                                <li>Use AI to support your overall strategy</li>
+                            </ul>
+                            <p class="gb-accordion__meta">6 lessons</p>
+                        </div>
+                    </details>
+                </div>
+
+                <div class="gb-format" aria-label="Learning format">
+                    <article class="gb-format__item">
+                        <svg class="gb-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>
+                        <h3>Self-paced</h3>
+                        <p>Learn on your own schedule.</p>
+                    </article>
+                    <article class="gb-format__item">
+                        <svg class="gb-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/></svg>
+                        <h3>Quick self-checks</h3>
+                        <p>Short knowledge checks after each module/chapter to reinforce what you learned.</p>
+                    </article>
+                    <article class="gb-format__item">
+                        <svg class="gb-icon" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M16 3v4M8 3v4M3 11h18"/></svg>
+                        <h3>9 months access</h3>
+                        <p>Nine months to work through the material at your own pace.</p>
                     </article>
                 </div>
             </div>
+        </div>
+    </section>
 
-            <!-- Option 2: Full Program -->
-            <div class="pricing-option">
-                <span class="pricing-option-badge">OPTION 2</span>
-                <div class="pricing-full-card">
-                    <div class="pricing-full-left">
-                        <h3 class="pricing-title pricing-title--lg">Explore Everything</h3>
-                        <p class="pricing-label">FULL GO BEYOND PROGRAM</p>
-                        <p class="pricing-full-desc">For professionals who want to explore multiple career paths across corporate retail.</p>
-                        <div class="pricing-price">$350</div>
-                        <a href="https://gobeyond-s-school.teachable.com/purchase?product_id=6814675" class="btn-primary pricing-btn">Get Full Access</a>
+    <!-- Meet the founders -->
+    <section class="gb-section gb-section--white" id="founders" aria-labelledby="founders-title">
+        <div class="gb-container">
+            <div class="gb-founders__layout">
+                <div class="gb-founders__copy">
+                    <p class="gb-eyebrow">Meet the people behind Go Beyond</p>
+                    <h2 class="gb-title" id="founders-title">We built the resource we wish we&rsquo;d had.</h2>
+                    <p class="gb-lead">We both built our careers in retail and experienced firsthand how difficult it can be to understand what comes after the store.</p>
+                    <p class="gb-lead">Go Beyond grew out of the lessons we learned making that transition ourselves.</p>
+
+                    <div class="gb-founders__trust">
+                        <article>
+                            <svg class="gb-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-8-4.5-8-11a5 5 0 019-3 5 5 0 019 3c0 6.5-8 11-8 11z"/></svg>
+                            <div>
+                                <h3>We lived the journey</h3>
+                                <p>We understand what it feels like to wonder what comes next.</p>
+                            </div>
+                        </article>
+                        <article>
+                            <svg class="gb-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 19h16"/><path d="M7 19V9l5-4 5 4v10"/><path d="M10 19v-5h4v5"/></svg>
+                            <div>
+                                <h3>We understand retail beyond the store</h3>
+                                <p>We connect store experience with Marketing, Retail Operations and Field Leadership.</p>
+                            </div>
+                        </article>
+                        <article>
+                            <svg class="gb-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4.4 3.6-8 8-8s8 3.6 8 8"/></svg>
+                            <div>
+                                <h3>Built specifically for retail leaders</h3>
+                                <p>Not generic career advice adapted to retail.</p>
+                            </div>
+                        </article>
                     </div>
-                    <div class="pricing-full-divider" aria-hidden="true"></div>
-                    <div class="pricing-full-right">
-                        <p class="pricing-label">ALL 5 MODULES INCLUDED</p>
-                        <ul class="pricing-modules-list">
-                            <li>
-                                <span class="pricing-module-icon" aria-hidden="true">
-                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"/><line x1="4" y1="22" x2="4" y2="15"/></svg>
-                                </span>
-                                1. Foundation of Success
-                            </li>
-                            <li>
-                                <span class="pricing-module-icon" aria-hidden="true">
-                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11l18-5v12L3 14v-3z"/><path d="M11.6 16.8a3 3 0 11-5.8-1.6"/></svg>
-                                </span>
-                                2. Marketing
-                            </li>
-                            <li>
-                                <span class="pricing-module-icon" aria-hidden="true">
-                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M16 4h2a2 2 0 012 2v14a2 2 0 01-2 2H6a2 2 0 01-2-2V6a2 2 0 012-2h2"/><rect x="8" y="2" width="8" height="4" rx="1"/><path d="M9 14h6M9 18h4"/></svg>
-                                </span>
-                                3. Retail Operations
-                            </li>
-                            <li>
-                                <span class="pricing-module-icon" aria-hidden="true">
-                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg>
-                                </span>
-                                4. Field Leadership
-                            </li>
-                            <li>
-                                <span class="pricing-module-icon" aria-hidden="true">
-                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v2"/></svg>
-                                </span>
-                                5. Tools for a Strong Job Search
-                            </li>
-                        </ul>
+
+                    <div class="gb-founders__actions">
+                        <a class="gb-btn gb-btn--outline gb-calendly-pending" href="https://calendly.com/discover-gobeyond/30min" target="_blank" rel="noopener noreferrer" data-gb-event="clarity_call_click" data-gb-location="founders">Book a Free Call</a>
+                        <a class="gb-founders__text-link" href="#paths" data-gb-event="hero_explore_paths_click" data-gb-location="founders">Choose Your Path <span aria-hidden="true">&rarr;</span></a>
                     </div>
                 </div>
-            </div>
 
-            <!-- Help bar -->
-            <div class="pricing-help-bar">
-                <div class="pricing-help-left">
-                    <span class="pricing-help-icon" aria-hidden="true">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 015.83 1c0 2-3 3-3 3M12 17h.01"/></svg>
-                    </span>
-                    <span>Not sure which path is right for you? We're happy to help you find clarity.</span>
-                </div>
-                <div class="pricing-help-right">
-                    <span class="pricing-help-icon" aria-hidden="true">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-                    </span>
-                    <a href="mailto:info@goingobeyond.com" class="pricing-help-email">info@goingobeyond.com</a>
-                </div>
-            </div>
+                <div class="gb-founders__grid">
+                    <article class="gb-founder">
+                        <div class="gb-founder__media">
+                            <img src="images/masha.jpeg" alt="Masha, Co-Founder of Go Beyond">
+                        </div>
+                        <div class="gb-founder__body">
+                            <h3>Masha</h3>
+                            <p class="gb-founder__role">Co-Founder, Go Beyond</p>
+                            <p class="gb-founder__path">Retail &rarr; Leadership &rarr; Broader Business</p>
+                            <p class="gb-founder__bio">Started on the store floor and worked my way into store leadership, multi-unit responsibility, retail operations and business development. I know firsthand how hard it can be to see what comes next &mdash; and built Go Beyond to help retail leaders turn their experience into a clearer next move.</p>
+                            <a class="gb-founder__link" href="https://www.linkedin.com/in/masha-bilopolska" target="_blank" rel="noopener noreferrer" data-gb-event="founder_linkedin_click" data-founder="masha" aria-label="Masha on LinkedIn (opens in a new tab)">LinkedIn &#8599;</a>
+                        </div>
+                    </article>
 
-            <!-- Trust row -->
-            <div class="pricing-trust-row">
-                <div class="pricing-trust-item">
-                    <span class="pricing-trust-icon" aria-hidden="true">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-                    </span>
-                    <span class="pricing-trust-text">Learn at your own pace</span>
-                </div>
-                <div class="pricing-trust-item">
-                    <span class="pricing-trust-icon" aria-hidden="true">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
-                    </span>
-                    <span class="pricing-trust-text">Practical tools you can apply immediately</span>
-                </div>
-                <div class="pricing-trust-item">
-                    <span class="pricing-trust-icon" aria-hidden="true">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
-                    </span>
-                    <span class="pricing-trust-text">Built by former retail leaders</span>
-                </div>
-                <div class="pricing-trust-item">
-                    <span class="pricing-trust-icon" aria-hidden="true">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-                    </span>
-                    <span class="pricing-trust-text">Invest in your growth and future</span>
+                    <article class="gb-founder">
+                        <div class="gb-founder__media">
+                            <img src="images/ita.jpeg" alt="Ita, Co-Founder of Go Beyond">
+                        </div>
+                        <div class="gb-founder__body">
+                            <h3>Ita</h3>
+                            <p class="gb-founder__role">Co-Founder, Go Beyond</p>
+                            <p class="gb-founder__path">Retail &rarr; Leadership &rarr; Business Growth</p>
+                            <p class="gb-founder__bio">From the sales floor to corporate strategy, I&rsquo;ve seen firsthand how much retail professionals bring to the table. I co-founded Go Beyond to help them see that potential in themselves and turn their real-world experience into their next big opportunity.</p>
+                            <a class="gb-founder__link" href="https://linkedin.com/in/itasafwat" target="_blank" rel="noopener noreferrer" data-gb-event="founder_linkedin_click" data-founder="ita" aria-label="Ita on LinkedIn (opens in a new tab)">LinkedIn &#8599;</a>
+                        </div>
+                    </article>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Final CTA Section -->
-    <section class="final-cta-section">
-        <div class="container">
-            <div class="final-cta-content">
-                <h2 class="section-title">Your Corporate Career Starts Here</h2>
-                <p class="final-subtitle">Get full access to all five modules for $350, or build your own path with a focused track for $150.</p>
-                <div class="final-buttons">
-                    <a href="https://gobeyond-s-school.teachable.com/purchase?product_id=6814675" class="btn-primary">Get Full Access</a>
-                    <a href="#courses" class="btn-secondary">See What’s Inside the Course</a>
-                </div>
+    <!-- Repeat purchase decision -->
+    <section class="gb-band gb-band--paths" id="decide" aria-labelledby="decide-title">
+        <div class="gb-container gb-band__inner">
+            <div class="gb-band__copy">
+                <h2 id="decide-title">Ready to choose your next direction?</h2>
+                <p>You don&rsquo;t need a five-year plan. You need a next move.</p>
+            </div>
+            <div class="gb-band__actions">
+                <a class="gb-btn gb-btn--on-dark gb-band__cta-primary" href="https://gobeyond-s-school.teachable.com/purchase?product_id=6814675" data-gb-event="start_path_click" data-product="full">Get Full Access &mdash; $350</a>
+                <a class="gb-btn gb-btn--ghost-light" href="https://gobeyond-s-school.teachable.com/purchase?product_id=6814656" data-gb-event="start_path_click" data-product="marketing">Start Marketing &mdash; $150</a>
+                <a class="gb-btn gb-btn--ghost-light" href="https://gobeyond-s-school.teachable.com/purchase?product_id=6814657" data-gb-event="start_path_click" data-product="operations">Start Retail Operations &mdash; $150</a>
+                <a class="gb-btn gb-btn--ghost-light" href="https://gobeyond-s-school.teachable.com/purchase?product_id=6814659" data-gb-event="start_path_click" data-product="field">Start Field Leadership &mdash; $150</a>
             </div>
         </div>
     </section>
 
-    <!-- Newsletter modal -->
-    <div id="leadModal" class="modal modal-newsletter" aria-hidden="true">
-        <div class="modal-content lead-modal">
-            <button type="button" class="close newsletter-modal-close" aria-label="Close">&times;</button>
-            <div class="lead-header">
-                <h2 class="lead-title">Get a chance to win a free seat in Go Beyond</h2>
-                <p class="lead-subtitle">Join the Go Beyond newsletter for practical insights on moving from store to corporate &mdash; plus insider guidance you won&rsquo;t find anywhere else.</p>
+    <!-- Path Clarity Call — hidden until Calendly is ready (class gb-calendly-pending) -->
+    <section class="gb-section gb-section--white gb-calendly-pending" id="clarity-call" aria-labelledby="clarity-title" hidden>
+        <div class="gb-container gb-clarity">
+            <div>
+                <h2 class="gb-title" id="clarity-title">Not sure which direction fits you?</h2>
+                <p class="gb-lead">Tell us where you are in your retail career and what you&rsquo;re considering next.</p>
+                <p class="gb-lead" style="margin-top:14px;">In a free 30-minute Path Clarity Call, we&rsquo;ll help you think through the options and identify which Go Beyond path &mdash; if any &mdash; makes the most sense for you.</p>
             </div>
-            <div class="lead-form newsletter-modal-body">
-                <div id="newsletterModalFormWrap" class="newsletter-modal-form-wrap">
-                    <script async data-uid="3c3c125278" src="https://daniela-quiroga.kit.com/3c3c125278/index.js"></script>
-                    <p class="lead-disclaimer">No spam. Unsubscribe anytime.</p>
-                    <p class="newsletter-modal-alt"><a href="newsletter.html" class="newsletter-modal-alt-link">Prefer to sign up on a dedicated page?</a></p>
-                </div>
+            <div class="gb-clarity__card">
+                <a class="gb-btn gb-btn--primary gb-btn--block" href="https://calendly.com/discover-gobeyond/30min" target="_blank" rel="noopener noreferrer" data-gb-event="clarity_call_click" data-gb-location="clarity_section">Book a Free Call</a>
+                <p style="margin-top:14px;margin-bottom:0;">No pressure. No obligation to enroll.</p>
             </div>
         </div>
-    </div>
+    </section>
 
-    <button type="button" id="newsletterFloatBtn" class="newsletter-float-btn" aria-label="Win a free seat — open signup">
-        Win a Free Seat
-    </button>
-
-    <!-- Course Modal -->
-    <div id="courseModal" class="modal">
-        <div class="modal-content">
-            <span class="close">×</span>
-            <div class="modal-header">
-                <div class="modal-image"></div>
-                <div class="modal-title-section">
-                    <h2 class="modal-title"></h2>
-                    <p class="modal-subtitle"></p>
-                </div>
+    <!-- FAQ -->
+    <section class="gb-section gb-section--cream" id="faq" aria-labelledby="faq-title">
+        <div class="gb-container">
+            <div class="gb-section__header">
+                <h2 class="gb-title" id="faq-title">FAQ</h2>
             </div>
-            <div class="modal-body">
-                <div class="modal-section">
-                    <h3>Course Overview</h3>
-                    <p class="modal-overview"></p>
-                </div>
-                <div class="modal-section">
-                    <h3>What You'll Learn</h3>
-                    <ul class="modal-learning-list"></ul>
-                </div>
-                <div class="modal-section">
-                    <h3>Lessons and Modules</h3>
-                    <p class="modal-lessons"></p>
+            <div class="gb-faq__grid gb-faq" data-gb-faq>
+                <details>
+                    <summary>Who is Go Beyond for? <span class="gb-faq__plus" aria-hidden="true">+</span></summary>
+                    <div class="gb-faq__answer">Go Beyond is designed primarily for Store Managers, Assistant Store Managers and experienced retail leaders who are thinking about what comes next in their careers.</div>
+                </details>
+                <details>
+                    <summary>Do I need corporate experience? <span class="gb-faq__plus" aria-hidden="true">+</span></summary>
+                    <div class="gb-faq__answer">No. Go Beyond was created to help retail leaders understand opportunities beyond the store and recognize how their existing experience may connect to them, as well as what new skills they should develop to scale their careers.</div>
+                </details>
+                <details>
+                    <summary>What is included in a $150 path? <span class="gb-faq__plus" aria-hidden="true">+</span></summary>
+                    <div class="gb-faq__answer">Every focused path includes Foundation of Success, your chosen specialization and Tools for a Strong Job Search. We want to make sure you get a strong basic knowledge &mdash; as your foundation, as well as solid tools that will help you apply for job efficiently.</div>
+                </details>
+                <details>
+                    <summary>What is included in the $350 Full Program? <span class="gb-faq__plus" aria-hidden="true">+</span></summary>
+                    <div class="gb-faq__answer">All five modules: Foundation of Success, Marketing, Retail Operations, Field Leadership and Tools for a Strong Job Search.</div>
+                </details>
+                <details>
+                    <summary>Is Go Beyond self-paced? <span class="gb-faq__plus" aria-hidden="true">+</span></summary>
+                    <div class="gb-faq__answer">Yes. You can work through the course on your own schedule within 9 months.</div>
+                </details>
+                <details>
+                    <summary>How long do I have access? <span class="gb-faq__plus" aria-hidden="true">+</span></summary>
+                    <div class="gb-faq__answer">You receive 9 months of access.</div>
+                </details>
+                <details>
+                    <summary>Are there knowledge checks? <span class="gb-faq__plus" aria-hidden="true">+</span></summary>
+                    <div class="gb-faq__answer">Yes. Short self-checks are included after modules/chapters to help reinforce what you learned.</div>
+                </details>
+                <details>
+                    <summary>What if I don&rsquo;t know which path is right for me? <span class="gb-faq__plus" aria-hidden="true">+</span></summary>
+                    <!-- When Calendly is back, restore: "...or book a free 30-minute Path Clarity Call with us." -->
+                    <div class="gb-faq__answer">Choose the Full Go Beyond Program to explore all three career directions.</div>
+                </details>
+                <details>
+                    <summary>Does completing Go Beyond guarantee a corporate or field role? <span class="gb-faq__plus" aria-hidden="true">+</span></summary>
+                    <div class="gb-faq__answer">No. Go Beyond provides education, practical frameworks and career-positioning tools, but individual hiring outcomes depend on many factors.</div>
+                </details>
+            </div>
+        </div>
+    </section>
+
+    <!-- Final CTA -->
+    <section class="gb-band gb-band--stack" aria-labelledby="final-title">
+        <div class="gb-container gb-band__inner">
+            <div class="gb-band__copy">
+                <h2 id="final-title">Your experience has already brought you this far.</h2>
+                <p>Now decide where you want it to take you next.</p>
+            </div>
+            <div class="gb-band__actions">
+                <a class="gb-btn gb-btn--on-dark" href="#paths" data-gb-event="hero_explore_paths_click">Explore Career Paths</a>
+                <a class="gb-btn gb-btn--ghost-light gb-calendly-pending" href="https://calendly.com/discover-gobeyond/30min" target="_blank" rel="noopener noreferrer" data-gb-event="clarity_call_click">Book a Free Call</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Path explore modal -->
+    <div class="gb-modal" id="gbPathModal" hidden aria-hidden="true">
+        <div class="gb-modal__backdrop" data-gb-modal-close></div>
+        <div class="gb-modal__dialog" role="dialog" aria-modal="true" aria-labelledby="gbPathModalTitle">
+            <button type="button" class="gb-modal__close" data-gb-modal-close aria-label="Close">&times;</button>
+            <div class="gb-modal__media">
+                <img id="gbPathModalImage" src="" alt="">
+            </div>
+            <div class="gb-modal__body">
+                <p class="gb-modal__price" id="gbPathModalPrice"></p>
+                <h2 class="gb-modal__title" id="gbPathModalTitle"></h2>
+                <p class="gb-modal__desc" id="gbPathModalDesc"></p>
+                <h3 class="gb-modal__label">Includes</h3>
+                <ul class="gb-check" id="gbPathModalIncludes"></ul>
+                <h3 class="gb-modal__label">You&rsquo;ll learn how to</h3>
+                <ul class="gb-check" id="gbPathModalLearning"></ul>
+                <div class="gb-modal__actions">
+                    <a class="gb-btn gb-btn--primary" id="gbPathModalCheckout" href="#" data-gb-event="start_path_click">Start this path</a>
+                    <button type="button" class="gb-btn gb-btn--outline" data-gb-modal-close>Keep exploring</button>
                 </div>
             </div>
         </div>
     </div>
 
     <!-- Footer -->
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-brand">
-                    <h3 class="logo" style="display: flex;"><img src="images/noBgBlack.png" alt="Go Beyond" style="width: 200px; object-fit: contain;"></h3>
+    <footer class="gb-footer">
+        <div class="gb-container gb-footer__inner">
+            <div class="gb-footer__top">
+                <div class="gb-footer__brand">
+                    <div class="gb-footer__logo">
+                        <img src="images/noBgBlack.png" alt="Go Beyond">
+                    </div>
+                    <nav class="gb-footer__social" aria-label="Social media">
+                        <a class="gb-footer__social-link gb-footer__social-link--instagram" href="https://www.instagram.com/join.gobeyond/" target="_blank" rel="noopener noreferrer" aria-label="Instagram"></a>
+                        <a class="gb-footer__social-link gb-footer__social-link--facebook" href="https://www.facebook.com/profile.php?id=61571173133274" target="_blank" rel="noopener noreferrer" aria-label="Facebook"></a>
+                        <a class="gb-footer__social-link gb-footer__social-link--tiktok" href="https://www.tiktok.com/@join.gobeyond" target="_blank" rel="noopener noreferrer" aria-label="TikTok"></a>
+                        <a class="gb-footer__social-link gb-footer__social-link--linkedin" href="https://www.linkedin.com/company/joingobeyond" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"></a>
+                    </nav>
                 </div>
-                <div class="footer-links">
-                    <a href="#courses" class="footer-link">Courses</a>
-                    <a href="contact.html" class="footer-link">Contact</a>
-                    <a href="newsletter.html" class="footer-link">Newsletter</a>
-                    <a href="https://school.joingobeyond.com/p/privacy" class="footer-link" target="_blank" rel="noopener noreferrer">Privacy</a>
-                    <a href="https://school.joingobeyond.com/p/terms" class="footer-link" target="_blank" rel="noopener noreferrer">Terms</a>
-                </div>
-                <!-- Social links — uncomment when URLs are ready
-                <div class="social-links">
-                    <a href="#" class="social-link">LinkedIn</a>
-                    <a href="#" class="social-link">Instagram</a>
-                </div>
-                -->
+                <nav class="gb-footer__links" aria-label="Footer">
+                    <a href="#paths">Career Paths</a>
+                    <a href="#learn">What You&rsquo;ll Learn</a>
+                    <a href="#inside">Inside Go Beyond</a>
+                    <a href="#founders">Meet the Founders</a>
+                    <a href="#faq">FAQ</a>
+                    <a href="contact.html">Contact</a>
+                    <a href="https://school.joingobeyond.com/p/privacy" target="_blank" rel="noopener noreferrer">Privacy Policy</a>
+                    <a href="https://school.joingobeyond.com/p/terms" target="_blank" rel="noopener noreferrer">Terms of Use</a>
+                </nav>
             </div>
+            <p class="gb-footer__legal">&copy; Go Beyond. All rights reserved.</p>
         </div>
     </footer>
-    <script src="script.js"></script>
 
-
-</body></html>
+    <script src="gb-redesign.js" defer></script>
+</body>
+</html>
