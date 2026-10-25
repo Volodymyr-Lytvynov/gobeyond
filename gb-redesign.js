@@ -278,7 +278,7 @@
         marketing: {
             title: 'Marketing',
             price: '$150',
-            image: '../images/marketing.png',
+            image: 'images/marketing.png',
             imageAlt: 'Marketing path',
             description: 'For retail leaders interested in customers, brand strategy, campaigns and business growth.',
             includes: ['Foundation of Success', 'Marketing', 'Tools for a Strong Job Search'],
@@ -297,7 +297,7 @@
         operations: {
             title: 'Retail Operations',
             price: '$150',
-            image: '../images/store_opertations.png',
+            image: 'images/store_opertations.png',
             imageAlt: 'Retail Operations path',
             description: 'For people who naturally see opportunities to improve processes, performance and how the business runs.',
             includes: ['Foundation of Success', 'Retail Operations', 'Tools for a Strong Job Search'],
@@ -316,7 +316,7 @@
         field: {
             title: 'Field Leadership',
             price: '$150',
-            image: '../images/field_leadership.png',
+            image: 'images/field_leadership.png',
             imageAlt: 'Field Leadership path',
             description: 'For leaders ready to expand their impact beyond a single store.',
             includes: ['Foundation of Success', 'Field Leadership', 'Tools for a Strong Job Search'],
@@ -335,7 +335,7 @@
         full: {
             title: 'Full Go Beyond Program',
             price: '$350',
-            image: '../images/corporate_success.png',
+            image: 'images/corporate_success.png',
             imageAlt: 'Full Go Beyond Program',
             description: 'Want to explore all three directions? Get all five modules and understand Marketing, Retail Operations and Field Leadership before deciding where you want to focus.',
             includes: ['All five modules', 'All three specializations', 'Complete career exploration'],
