@@ -1637,12 +1637,12 @@ body.gb-modal-open {
     }
 }
 
-/* Desktop / laptop reading size — mobile stays as-is */
+/* Desktop / laptop — match old site reading size (~20px body); mobile unchanged */
 @media (min-width: 1024px) {
     .gb-lead,
     .gb-hero__body {
-        font-size: 19px;
-        line-height: 1.7;
+        font-size: 20px;
+        line-height: 1.65;
     }
 
     .gb-check li,
@@ -1651,8 +1651,8 @@ body.gb-modal-open {
     .gb-learn__aside li,
     .gb-faq__answer,
     .gb-faq summary {
-        font-size: 17px;
-        line-height: 1.55;
+        font-size: 18px;
+        line-height: 1.6;
     }
 
     .gb-path__desc,
@@ -1664,8 +1664,8 @@ body.gb-modal-open {
     .gb-accordion__body,
     .gb-accordion__body p,
     .gb-accordion__body li {
-        font-size: 16px;
-        line-height: 1.6;
+        font-size: 17px;
+        line-height: 1.65;
     }
 
     .gb-fit__item h3,
