@@ -56,7 +56,7 @@
                 <a class="gb-header__link" href="#faq">FAQ</a>
             </nav>
             <div class="gb-header__actions">
-                <a class="gb-btn gb-btn--outline gb-btn--sm" href="https://calendly.com/discover-gobeyond/30min" target="_blank" rel="noopener noreferrer" data-gb-event="clarity_call_click">Book a Free Call</a>
+                <a class="gb-btn gb-btn--outline gb-btn--sm gb-calendly-pending" href="https://calendly.com/discover-gobeyond/30min" target="_blank" rel="noopener noreferrer" data-gb-event="clarity_call_click">Book a Free Call</a>
                 <a class="gb-btn gb-btn--primary gb-btn--sm" href="#paths">Choose Your Path</a>
             </div>
             <button class="gb-header__toggle" type="button" data-gb-nav-toggle aria-expanded="false" aria-label="Open menu">
@@ -528,7 +528,7 @@
                     </div>
 
                     <div class="gb-founders__actions">
-                        <a class="gb-btn gb-btn--outline" href="https://calendly.com/discover-gobeyond/30min" target="_blank" rel="noopener noreferrer" data-gb-event="clarity_call_click" data-gb-location="founders">Book a Free Call</a>
+                        <a class="gb-btn gb-btn--outline gb-calendly-pending" href="https://calendly.com/discover-gobeyond/30min" target="_blank" rel="noopener noreferrer" data-gb-event="clarity_call_click" data-gb-location="founders">Book a Free Call</a>
                         <a class="gb-founders__text-link" href="#paths" data-gb-event="hero_explore_paths_click" data-gb-location="founders">Choose Your Path <span aria-hidden="true">&rarr;</span></a>
                     </div>
                 </div>
@@ -580,8 +580,8 @@
         </div>
     </section>
 
-    <!-- Path Clarity Call -->
-    <section class="gb-section gb-section--white" id="clarity-call" aria-labelledby="clarity-title">
+    <!-- Path Clarity Call — hidden until Calendly is ready (class gb-calendly-pending) -->
+    <section class="gb-section gb-section--white gb-calendly-pending" id="clarity-call" aria-labelledby="clarity-title" hidden>
         <div class="gb-container gb-clarity">
             <div>
                 <h2 class="gb-title" id="clarity-title">Not sure which direction fits you?</h2>
@@ -632,7 +632,8 @@
                 </details>
                 <details>
                     <summary>What if I don&rsquo;t know which path is right for me? <span class="gb-faq__plus" aria-hidden="true">+</span></summary>
-                    <div class="gb-faq__answer">Choose the Full Go Beyond Program to explore all three career directions, or book a free 30-minute Path Clarity Call with us.</div>
+                    <!-- When Calendly is back, restore: "...or book a free 30-minute Path Clarity Call with us." -->
+                    <div class="gb-faq__answer">Choose the Full Go Beyond Program to explore all three career directions.</div>
                 </details>
                 <details>
                     <summary>Does completing Go Beyond guarantee a corporate or field role? <span class="gb-faq__plus" aria-hidden="true">+</span></summary>
@@ -651,7 +652,7 @@
             </div>
             <div class="gb-band__actions">
                 <a class="gb-btn gb-btn--on-dark" href="#paths" data-gb-event="hero_explore_paths_click">Explore Career Paths</a>
-                <a class="gb-btn gb-btn--ghost-light" href="https://calendly.com/discover-gobeyond/30min" target="_blank" rel="noopener noreferrer" data-gb-event="clarity_call_click">Book a Free Call</a>
+                <a class="gb-btn gb-btn--ghost-light gb-calendly-pending" href="https://calendly.com/discover-gobeyond/30min" target="_blank" rel="noopener noreferrer" data-gb-event="clarity_call_click">Book a Free Call</a>
             </div>
         </div>
     </section>

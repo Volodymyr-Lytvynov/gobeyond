@@ -54,6 +54,11 @@ body.gb-page {
     border: 0;
 }
 
+/* Toggle off when Calendly is ready: remove this rule (or the class from markup). */
+.gb-calendly-pending {
+    display: none !important;
+}
+
 .gb-container {
     width: min(1200px, calc(100% - 40px));
     margin: 0 auto;
