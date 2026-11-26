@@ -274,6 +274,47 @@
         });
     }
 
+    const sale = {
+        code: 'BLACKFRIDAY',
+        start: Date.parse('2026-11-26T00:00:00-05:00'),
+        end: Date.parse('2027-01-04T23:59:59-05:00'),
+        prices: {
+            track: { was: '$150', now: '$105' },
+            full: { was: '$350', now: '$245' }
+        }
+    };
+
+    function isSaleActive(now) {
+        const t = now == null ? Date.now() : now;
+        return t >= sale.start && t <= sale.end;
+    }
+
+    function salePriceMarkup(tier) {
+        const price = sale.prices[tier];
+        if (!price) return '';
+        return '<s class="gb-price__was"><span class="gb-vh">Was </span>' + price.was + '</s>'
+            + '<span class="gb-price__now"><span class="gb-vh">, now </span>' + price.now + '</span>';
+    }
+
+    function withCoupon(url) {
+        if (!isSaleActive() || !url || url.indexOf('coupon_code=') !== -1) return url;
+        return url + (url.indexOf('?') === -1 ? '?' : '&') + 'coupon_code=' + encodeURIComponent(sale.code);
+    }
+
+    function applySale() {
+        if (!isSaleActive()) return;
+        document.querySelectorAll('[data-gb-price]').forEach((el) => {
+            const markup = salePriceMarkup(el.getAttribute('data-gb-price'));
+            if (markup) el.innerHTML = markup;
+        });
+        document.querySelectorAll('a[href*="teachable.com/purchase"]').forEach((anchor) => {
+            anchor.href = withCoupon(anchor.getAttribute('href'));
+        });
+        document.querySelectorAll('[data-gb-sale-badge]').forEach((badge) => {
+            badge.hidden = false;
+        });
+    }
+
     const pathCatalog = {
         marketing: {
             title: 'Marketing',
@@ -387,7 +428,9 @@
             if (!path) return;
 
             titleEl.textContent = path.title;
-            priceEl.textContent = path.price;
+            const tier = pathKey === 'full' ? 'full' : 'track';
+            if (isSaleActive()) priceEl.innerHTML = salePriceMarkup(tier);
+            else priceEl.textContent = path.price;
             descEl.textContent = path.description;
             fillList(includesEl, path.includes);
             fillList(learningEl, path.learning);
@@ -396,7 +439,7 @@
             }
             imageEl.src = path.image;
             imageEl.alt = path.imageAlt;
-            checkoutEl.href = path.checkout;
+            checkoutEl.href = withCoupon(path.checkout);
             checkoutEl.textContent = path.cta;
             checkoutEl.dataset.product = path.product;
 
@@ -420,6 +463,7 @@
         });
     }
 
+    applySale();
     document.querySelectorAll('[data-hero-crossfade]').forEach(initCrossfade);
     initHeader();
     document.querySelectorAll('[data-gb-tabs]').forEach(initTabs);
